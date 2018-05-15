@@ -1,0 +1,117 @@
+.beijingyanse{
+	width: 375px;
+	height: 31px;
+	top: 63px;
+	background-color: rgba(75, 123, 249, 1);
+}
+#shitu{
+	left: 24px;
+	top: 69px;
+	width: 85px;
+	height: 27px;
+	line-height: 20px;
+	background-color: rgba(75, 123, 249, 1);
+	color: rgba(255, 255, 255, 1);
+	font-size: 14px;
+	font-family: Microsoft Yahei;
+	border: 2px solid rgba(255, 255, 255, 1);
+	border-radius:5px;
+	float: left;
+	position: absolute;
+}
+#danwei{
+	left: 301px;
+	top: 71px;
+	width: 49px;
+	height: 23px;
+	line-height: 17px;
+	opacity: 0.78;
+	color: #FFFFFF;
+	font-size: 12px;
+	text-align: center;
+	font-family: Arial;
+	float: left;
+	position: absolute;
+}
+#tubiao{
+	width: 375px;
+	height: 401px;
+	top: 96px;
+	background-color: rgba(75, 123, 249, 1);
+}
+#sj{
+	left: 0px;
+	top: 497px;
+	width: 375px;
+	height: 63px;
+	line-height: 20px;
+	text-align: center;
+	border: 1px solid rgba(187, 187, 187, 1);
+	float: left;
+	position: absolute;
+}
+#shijian{
+	left: 83px;
+	top: 518px;
+	width: 181px;
+	height: 26px;
+	line-height: 26px;
+	color: rgba(16, 16, 16, 1);
+	font-size: 18px;
+	text-align: center;
+	font-family: Arial;
+	float: left;
+	position: absolute;
+}
+#icon_yingxiaotongji{
+	left: 7px;
+	top: 573px;
+	width: 30px;
+	height: 30px;
+	line-height: 20px;
+	border-radius: 100px;
+	background-color: rgba(0, 150, 136, 1);
+	text-align: center;
+	border: 1px solid rgba(187, 187, 187, 1);
+	float: left;
+	position: absolute;
+}
+#icon_zongshouru{
+	left: 7px;
+	top: 622px;
+	width: 30px;
+	height: 30px;
+	line-height: 20px;
+	border-radius: 100px;
+	background-color: rgba(255, 152, 0, 1);
+	text-align: center;
+	border: 1px solid rgba(187, 187, 187, 1);
+	float: left;
+	position: absolute;
+}
+#dingdanliang{
+	left: 42px;
+	top: 582px;
+	width: 57px;
+	height: 23px;
+	line-height: 20px;
+	color: rgba(16, 16, 16, 1);
+	font-size: 14px;
+	text-align: center;
+	font-family: Arial;
+	float: left;
+	position: absolute;
+}
+#zongshouru{
+	left: 42px;
+	top: 630px;
+	width: 57px;
+	height: 23px;
+	line-height: 20px;
+	color: rgba(16, 16, 16, 1);
+	font-size: 14px;
+	text-align: center;
+	font-family: Arial;
+	float: left;
+	position: absolute;
+}

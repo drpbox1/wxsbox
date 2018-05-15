@@ -1,0 +1,26 @@
+#shurukuang{
+	width: 100%;
+	height: 205px;
+	line-height: 20px;
+	color: rgba(136, 136, 136, 1);
+	font-size: 14px;
+	text-align: left;
+	font-family: Microsoft Yahei;
+	float: left;
+	position: absolute;
+}
+#yijiantijiao{
+	left: 29px;
+	top: 329px;
+	width: 86%;
+	height: 30px;
+	border-radius: 4px;
+	background-color: rgba(75, 123, 249, 1);
+	color: rgba(255, 255, 255, 1);
+	font-size: 14px;
+	text-align: center;
+	font-family: Microsoft Yahei;
+	border: 1px solid rgba(75, 123, 249, 1);
+	float: left;
+	position: absolute;
+}

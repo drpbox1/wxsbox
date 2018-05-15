@@ -1,0 +1,102 @@
+#wodeqianbao{
+	left: 0px;
+	top: 67px;
+	width: 100%;
+	height: 314px;
+	line-height: 20px;
+	background-color: rgba(75, 123, 249, 1);
+	color: rgba(75, 123, 249, 1);
+	font-size: 14px;
+	text-align: center;
+	font-family: Arial;
+	float: left;
+	position: absolute;
+}
+#qb_yue{
+	left: 35%;
+	top: 60px;
+	width: 127px;
+	height: 23px;
+	line-height: 20px;
+	color: rgba(255, 255, 255, 1);
+	font-size: 14px;
+	text-align: center;
+	font-family: Arial;
+	float: left;
+	position: absolute;
+}
+#qb_yuezhi{
+	left: 35%;
+	top: 112px;
+	width: 118px;
+	height: 41px;
+	line-height: 41px;
+	color: rgba(255, 255, 255, 1);
+	font-size: 28px;
+	text-align: center;
+	font-family: Arial;
+	float: left;
+	position: absolute;
+}
+#qb_tixian{
+	left: 0px;
+	top: 377px;
+	width: 100%;
+	height: 53px;
+	line-height: 20px;
+	text-align: center;
+	border: 1px solid rgba(187, 187, 187, 1);
+	float: left;
+	position: absolute;
+}
+#qb_bangding{
+	left: 0px;
+	top: 430px;
+	width:100%;
+	height: 53px;
+	line-height: 20px;
+	color: rgba(16, 16, 16, 1);
+	font-size: 14px;
+	text-align: center;
+	font-family: Arial;
+	border: 1px solid rgba(187, 187, 187, 1);
+	float: left;
+	position: absolute;
+}
+#qb_tx{
+	left: 10px;
+	top: 15px;
+	width: 33px;
+	height: 33px;
+	float: left;
+	position: absolute;
+}
+#qb_bd{
+	left: 12px;
+	top: 15px;
+	width: 27px;
+	height: 27px;
+	float: left;
+	position: absolute;
+}
+.qb_wenzi{
+	left: 53px;
+	top: 20px;
+	width: 71px;
+	height: 23px;
+	line-height: 20px;
+	color: rgba(16, 16, 16, 1);
+	font-size: 14px;
+	text-align: center;
+	font-family: Arial;
+	float: left;
+	position: absolute;
+}
+.qb_jiantou{
+	right: 9px;
+	top: 18px;
+	width: 16px;
+	height: 16px;
+	float: left;
+	position: absolute;
+}

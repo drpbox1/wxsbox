@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>机器列表</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+<style type="text/css">
+#jq_tongji{
+	top: 65px;
+	width: 100%;
+	height: 79px;
+	float: left;
+	position: absolute;
+	border: solid rgba(136, 136, 136, 1);
+	border-width: 1px 0px 1px 0px;
+}
+#jq_id{
+	left: 13px;
+	top: 7px;
+	width: 155px;
+	height: 27px;
+	opacity: 0.82;
+	border-radius: 4px;
+	font-size: 14px;
+	text-align: left;
+	font-family: Microsoft Yahei;
+	border: 1px solid rgba(16, 16, 16, 1);
+	float: left;
+	position: absolute;
+}
+#jq_sousuo{
+	left: 174px;
+	top: 9px;
+	width: 57px;
+	height: 21px;
+	border-radius: 4px;
+	background-color: rgba(37, 155, 36, 1);
+	color: rgba(255, 255, 255, 1);
+	font-size: 12px;
+	text-align: center;
+	font-family: Microsoft Yahei;
+	float: left;
+	position: absolute;
+}
+#jq_quanxuan{
+	left: 12px;
+	top: 44px;
+	width: 59px;
+	height: 22px;
+	border-radius: 4px;
+	background-color: rgba(37, 155, 36, 1);
+	color: rgba(255, 255, 255, 1);
+	font-size: 12px;
+	text-align: center;
+	font-family: Microsoft Yahei;
+	float: left;
+	position: absolute;
+}
+#jq_yjtj{
+	left: 78px;
+	top: 44px;
+	width: 98px;
+	height: 22px;
+	border-radius: 4px;
+	background-color: rgba(37, 155, 36, 1);
+	color: rgba(255, 255, 255, 1);
+	font-size: 12px;
+	text-align: center;
+	font-family: Microsoft Yahei;
+	float: left;
+	position: absolute;
+}
+#zhuanfa{
+	right:12px;
+	top: 30px;
+	width: 15px;
+	height: 15px;
+	float: left;
+	position: absolute;
+}
+#jq_shu{
+	left: 190px;
+	top: 44px;
+	width: 75px;
+	height: 20px;
+	line-height: 20px;
+	color: rgba(16, 16, 16, 1);
+	font-size: 14px;
+	text-align: center;
+	font-family: Arial;
+	float: left;
+	position: absolute;
+}
+#jq_shebei{
+	width: 99%;
+	top: 147px;
+	border-top-style: 1px solid #888888;
+	float: left;
+	position: absolute;
+	left: 11px;
+}
+#jq_shebei p{
+	height: 37px;
+	left: 7px;
+	width:100%;
+}
+</style>
+</head>
+<body>
+	<div class="jiemian">
+		<div class="top"></div>
+		<div class="head">
+			<img class="fanhui" src="images/btn_fanhui@3x.png">机器列表<span id="zhuanfa" name="zhuanfa">...</span>
+		</div>
+		<div id="jq_tongji">
+			<input id="jq_id" type="text" name="jq_id" value="设备id或者名称">
+			<input id="jq_sousuo" type="button" name="jq_sousuo" value="搜索">
+			<input id="jq_quanxuan" type="button" name="jq_quanxuan" value="全选">
+			<input id="jq_yjtj" type="button" name="jq_yjtj" value="一键统计"><span id="jq_shu" style="">设备共 : 0</span>
+		</div>
+		<div id="jq_shebei">
+			<form action="" method="get">
+		  	  	<p><input type="checkbox" name="shebeihao2" value="car">	  	      
+				软件园设备（862631037541835）</p>
+				<p><input type="checkbox" name="shebeihao" value="car"> 
+				软件园设备（862631037541835）</p>
+				<p><input type="checkbox" name="shebeihao" value="car"> 
+				软件园设备（862631037541835）</p>
+				<p><input type="checkbox" name="shebeihao" value="car"> 
+				软件园设备（862631037541835）</p>
+			</form>
+	  	</div>
+	  	<div>
+	  		<img id="selected_shouye" src="images/selected_shouye@2x.png">
+			<img id="selected_shebei" src="images/icon_shebeiguanli@2x.png">
+			<img id="selected_gerenzhongxing" src="images/icon_gerenzhongxin@2x.png">
+	  	</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+#touxiang{
+	left: 23px;
+	top: 96px;
+	width: 29px;
+	height: 23px;
+	line-height: 20px;
+	color: rgba(16, 16, 16, 1);
+	font-size: 14px;
+	text-align: center;
+	font-family: Arial;
+	float: left;
+	position: absolute;
+}
+#touxiang_image1{
+	left: 279px;
+	top: 69px;
+	width: 71px;
+	height: 71px;
+	background-color: rgba(63, 81, 181, 1);
+	float: left;
+	position: absolute;
+	background-color: transparent; 
+}
+#touxiang_image2{
+	left: 353px;
+	top: 94px;
+	width: 22px;
+	height: 22px;
+	background-color: rgba(136, 136, 136, 1);
+	position: absolute;
+	background-color: transparent; 
+}

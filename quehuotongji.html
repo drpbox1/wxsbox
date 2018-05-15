@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>缺货设备</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+<style type="text/css">
+#qh_tongji{
+	top: 65px;
+	width: 100%;
+	height: 40px;
+	float: left;
+	position: absolute;
+	border: solid rgba(136, 136, 136, 1);
+	border-width: 1px 0px 1px 0px;
+}
+#qh_id{
+	left: 13px;
+	top: 5px;
+	width: 155px;
+	height: 27px;
+	opacity: 0.82;
+	border-radius: 4px;
+	font-size: 14px;
+	text-align: left;
+	font-family: Microsoft Yahei;
+	border: 1px solid rgba(16, 16, 16, 1);
+	float: left;
+	position: absolute;
+}
+#qh_sousuo{
+	left: 174px;
+	top: 6px;
+	width: 57px;
+	height: 21px;
+	border-radius: 4px;
+	background-color: rgba(37, 155, 36, 1);
+	color: rgba(255, 255, 255, 1);
+	font-size: 12px;
+	text-align: center;
+	font-family: Microsoft Yahei;
+	float: left;
+	position: absolute;
+}
+#qh_shebei{
+	top: 110px;
+	width: 100%;
+	height: 72px;
+	float: left;
+	position: absolute;
+}
+#shuaxing{
+	right:12px;
+	top: 30px;
+	width: 15px;
+	height: 15px;
+	float: left;
+	position: absolute;
+}
+.qh_bh{
+	width: 100%;
+	height: 37px;
+	border: solid rgba(136, 136, 136, 1);
+	border-width: 0px 0px 1px 0px;
+}
+.qh_sb{
+	top: 10px;
+	left: 15px;
+	width: 190px;
+	height: 23px;
+	line-height: 17px;
+	color: rgba(16, 16, 16, 1);
+	font-size: 12px;
+	text-align: center;
+	font-family: Arial;
+	float: left;
+	position: absolute;
+}
+.buhuo{
+	top: 10px;
+	right:15px;
+	width: 52px;
+	height: 18px;
+	border-radius: 4px;
+	background-color: rgba(189, 13, 19, 1);
+	color: rgba(16, 16, 16, 1);
+	font-size: 12px;
+	text-align: center;
+	font-family: Microsoft Yahei;
+	border: 1px solid rgba(187, 187, 187, 1);
+	float: left;
+	position: absolute;
+}
+</style>
+</head>
+<body>
+	<div class="jiemian">
+		<div class="top"></div>
+		<div class="head">
+			<img class="fanhui" src="images/btn_fanhui@3x.png">缺货设备<span id="shuaxing" name="shuaxing">○</span>
+		</div>
+		<div id="qh_tongji">
+			<input id="qh_id" type="text" name="qh_id" value="设备id或者名称">
+			<input id="qh_sousuo" type="button" name="qh_sousuo" value="搜索">
+		</div>
+		<div id="qh_shebei">
+			<div class="qh_bh">
+				<span class="qh_sb">软件园设备（862631037541835）</span><input class="buhuo" type="button" name="buhuo" value="补货">	
+			</div>
+		</div>
+		<div>
+	  		<img id="selected_shouye" src="images/selected_shouye@2x.png">
+			<img id="selected_shebei" src="images/icon_shebeiguanli@2x.png">
+			<img id="selected_gerenzhongxing" src="images/icon_gerenzhongxin@2x.png">
+	  	</div>
+	</div>
+</body>
+</html>

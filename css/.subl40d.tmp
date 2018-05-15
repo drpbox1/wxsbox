@@ -1,0 +1,30 @@
+.logo{
+	left: 0px;
+	top: 65px;
+	width: 375px;
+	height: 314px;
+	line-height: 20px;
+	background-color: rgba(75, 123, 249, 1);
+	color: rgba(75, 123, 249, 1);
+	font-size: 14px;
+	text-align: center;
+	font-family: Arial;
+	float: left;
+	position: absolute;
+}
+.circle{
+	left: 117px;
+	top: 132px;
+	width: 149px;
+	height: 149px;
+	line-height: 20px;
+	border-radius: 100px;
+	background-color:#FFFFF7 100%;
+	text-align: center;
+	box-shadow: 0px 0px 42px 0px rgba(248, 248, 248, 1);
+	border: 1px solid rgba(248, 248, 248, 1);
+	-moz-border-radius: 50%;   
+	-webkit-border-radius: 50%;
+	float: left;
+	position: absolute;
+}
