@@ -7,7 +7,7 @@ body{
 	height: 100%;
 	left: 0px;
 	top: 0px;
-	background-color: #FFFFF0;
+	background-color: white;
 	position: relative;
 }
 img{
@@ -28,7 +28,7 @@ img{
 	color: rgba(255, 255, 255, 1);
 	font-size: 16px;
 	text-align: center;
-	border: 1px solid rgba(187, 187, 187, 1);
+	/*border: 1px solid rgba(187, 187, 187, 1);*/
 	font-family: Microsoft Yahei;
 }
 .fanhui{

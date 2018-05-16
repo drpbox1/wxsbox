@@ -1,8 +1,12 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1" />
+<head> 
+ 	<meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
 	<title>登录</title>
 	<link rel="stylesheet" type="text/css" href="css/common.css">
 </head>
@@ -24,11 +28,48 @@
 		</div>
 		<div>
 			<p id="wangjimima">忘记密码?</p>
-			<input id="denglu" type="submit" name="denglu" onclick="location.href='index.html'" value="登录">
+			<input id="denglu" type="submit" name="denglu" value="登录">
 			<input id="zhc" type="submit" name="zhuce" onclick="location.href='register.html'" value="注册">
 		</div>
-	</div>
-	<script type="text/javascript">
+	</div> 
+
+	<!--请在下方写此页面业务相关的脚本-->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/require.js"></script>
+	<script>
+		
+    $("#denglu").click(function () {
+        var phone = $("#iphone").val();
+        var password = $("#password").val();
+		var rsa = '';
+        if (phone.length * password.length === 0) {
+            alert("请输入账户名和密码");
+        } else {
+            ajax_method("m/newlogin","post",{phone: phone, password: password},"",function (res) {   	
+            	if(res.code == 200){ 
+            		 rsa = res.data.rsa;
+					 ajax_method("m/login","get",{rsa: rsa},"",function (res) {   	
+            		 if(res.code == 200){   
+            		 	 sessionStorage.setItem("token", res.data['ww-token']); 
+						} 	
+		            });   
+				} 	
+            }); 
+        }
+    });
+
+    console.log(sessionStorage.getItem("token"));
+
+  //   $(function () {  
+
+  //    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMjAsInJlZ2lzdHJhdGlvbl9pZCI6ImJvYm8iLCJpYXQiOjE1MjU0MTAwMjcsImV4cCI6MTUyNjAxNDgyN30=.abb5192c44c4dfda3dfb33e7a138b73bf6af7ee28617bdba2b1a598a769c9ce9";
+	 // ajax_method("/m/getUserInfo", "get", "",token, function (res) {
+ 	// 	 alert(JSON.stringify(res));
+		// });
+
+  //  }); 
+
+
 	</script>
 </body>
 </html>
