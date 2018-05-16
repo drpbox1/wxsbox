@@ -27,7 +27,7 @@
 			</div>
 		</div>
 		<div>
-			<p id="wangjimima">忘记密码?</p>
+			<p id="wangjimima"><a href="find_password.html">忘记密码?</a></p>
 			<input id="denglu" type="submit" name="denglu" value="登录">
 			<input id="zhc" type="submit" name="zhuce" onclick="location.href='register.html'" value="注册">
 		</div>
@@ -45,19 +45,21 @@
         if (phone.length * password.length === 0) {
             alert("请输入账户名和密码");
         } else {
-            ajax_method("m/newlogin","post",{phone: phone, password: password},"",function (res) {   	
+            ajax_method("m/newlogin","post",{phone: phone, password: password},"",function (res) { 	
             	if(res.code == 200){ 
             		 rsa = res.data.rsa;
 					 ajax_method("m/login","get",{rsa: rsa},"",function (res) {   	
-            		 if(res.code == 200){   
-            		 	 sessionStorage.setItem("token", res.data['ww-token']); 
-						} 	
+            		 if(res.code == 200){
+            		 	 sessionStorage.setItem("token", res.data['ww-token']);
+            		 	 window.location.href="index.html";
+						}else{
+							alert(res.msg);
+						}	
 		            });   
 				} 	
             }); 
         }
     });
-
     console.log(sessionStorage.getItem("token"));
 
   //   $(function () {  
