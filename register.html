@@ -56,19 +56,17 @@
         var phone = $("#iphone").val();
         var code = $("#verify-text").val();
         var password = $("#newmima").val();
-        var confirm = $("querenmima").val();
+        var confirm = $("#querenmima").val(); 
 		var rsa = '';
 		if (phone.length * code.length === 0) {
-			alert("您还没有输入");
-			}else{
-		            ajax_method("m/register","post",{phone: phone,password: password,password_confirm: confirm,sms_code: code},"",function (res) {
-		           			if(res.code == 200){ 
-			            		window.location.href="login.html";  
-							} 	
-			            });
-		    	}	
-		    } 
-		} 
+		alert("您还没有输入");
+		}else{		
+	            ajax_method("m/register","post",{phone: phone,password: password,password_confirm: confirm,sms_code: code},"",function (res) {
+	           			if(res.code == 200){ 
+		            		window.location.href="login.html";  
+							}  
+		            });	 		
+    	} 		
     });
 </script>
 </body>
