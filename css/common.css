@@ -17,8 +17,8 @@ img{
     padding:0 1em; box-sizing:border-box;
 }
 .head{ 
-	height: 88px;
-	padding:0 1em; box-sizing:border-box;
+	height: 45px;
+	box-sizing:border-box;
 	background-color: rgba(75, 123, 249, 1);
 	color: rgba(255, 255, 255, 1);
 	font-size: 16px;
@@ -35,7 +35,7 @@ img{
 	position: absolute;
 }
 #shoujihao{
-	left: 16px;
+	left: 14px;
 	top: 77px;
 	width: 65px
 	height: 23px;
@@ -58,7 +58,7 @@ img{
 	position: absolute;
 }
 #yanzhengma{
-	left: 3px;
+	left: 8px;
 	top: 130px;
 	width: 65px;
 	height: 23px;
@@ -160,7 +160,7 @@ img{
 }
 #zhuce{
 	left: 24px;
-	top: 189px;
+	top: 300px;
 	width: 87%;
 	height: 41px;
 	border-radius: 4px;
@@ -232,7 +232,7 @@ img{
 }
 #selected_shouye{
 	left: 35px;
-	top: 630px;
+	top: 700px;
 	width: 27px;
 	height: 27px;
 	opacity: 0.98;
@@ -242,7 +242,7 @@ img{
 }
 #selected_shebei{
 	left: 50%;
-	top: 630px;
+	top: 700px;
 	width: 24px;
 	height: 24px;
 	background-color: transparent; 
@@ -251,7 +251,7 @@ img{
 }
 #selected_gerenzhongxing{
 	right: 35px;
-	top: 630px;
+	top: 700px;
 	width: 24px;
 	height: 24px;
 	opacity: 0.31;

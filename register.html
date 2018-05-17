@@ -31,7 +31,7 @@
 			</div>
 		</div>
 		<div>
-			<input id="wancheng" type="submit" name="wancheng" value="完成">
+			<input id="zhuce" type="submit" name="wancheng" value="注册">
 		</div>
 	</div>
 	<!--请在下方写此页面业务相关的脚本-->
@@ -47,24 +47,28 @@
 			ajax_method("m/smscode","get",{phone: phone,type:type},"",function (res) {
 		           			if(res.code == 200){ 
 			            		 
-							} 	
+							}else{
+								alert(res.msg);
+							}
 			            });
 		}
 	});
 
-    $("#wancheng").click(function () {
+    $("#zhuce").click(function () {
         var phone = $("#iphone").val();
         var code = $("#verify-text").val();
         var password = $("#newmima").val();
         var confirm = $("#querenmima").val(); 
 		var rsa = '';
-		if (phone.length * code.length === 0) {
+		if (phone.length * code.length * password.length * confirm.length === 0) {
 		alert("您还没有输入");
 		}else{		
 	            ajax_method("m/register","post",{phone: phone,password: password,password_confirm: confirm,sms_code: code},"",function (res) {
 	           			if(res.code == 200){ 
 		            		window.location.href="login.html";  
-							}  
+							} else{
+								alert(res.msg);
+							}
 		            });	 		
     	} 		
     });
