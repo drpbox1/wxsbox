@@ -94,110 +94,102 @@
 	float: left;
 	position: absolute;
 }
+.pagesdiv{ width:98%; height:40px; text-align:center; margin:2px 1%;display:none}
+.pagesdiv .lodimg{ width:30px; height:30px; display:inline-block; margin-top:5px;}
+.pagesdiv .lodtxt{ display:inline-table; margin-top:-8px; margin-left:5px}
+.pagesdiv .empty{margin-top:9px;}
 </style>
 </head>
 <body>
-	<div class="jiemian">
-		<div class="top"></div>
-		<div class="head">
-			<img class="fanhui" src="images/btn_fanhui@3x.png">订单列表 
-		</div>
-		<div class="dingdan">
-			<div class="dd_yh">
-				<img class="dd_tx" src="images/selected_gerenzhongxin@2x.png"><span class="dd_name">用户的名字</span><span class="dd_time">2018-05-04&nbsp16:34</span>			</div>
-			<div class="dd_shebei">
-				<table width="331">
-					<tr>
-						<td width="62">购买产品:</td>
-						<td width="125">酒店自助售货机mini版</td>
-						<td width="128"><img class="dd_weixin" src="images/share_weixin@2x.png">
-						  <p style="left: 274px; top: 7px; float: left; position: absolute; width: 49px; height: 0px;">微信支付
-					  <p></td>
-					</tr>
-					<tr>
-						<td>订单号:</td>
-						<td>28982973709748709</td>
-					</tr>
-					<tr>
-						<td>设备号:</td>
-						<td>2898297379</td>
-						<td><p style="left: 258px; top: 68px; float: left; position: absolute; width: 62px;">实付:¥1500</p></td>
-					</tr>
-			  </table>
-		  </div>
-		</div>
-		<div class="dingdan">
-			<div class="dd_yh">
-				<img class="dd_tx" src="images/selected_gerenzhongxin@2x.png"><span class="dd_name">用户的名字</span><span class="dd_time">2018-05-04&nbsp16:34</span>
+		<div class="jiemian">
+			<div class="top"></div>
+			<div class="head">
+				<img class="fanhui" src="images/btn_fanhui@3x.png">订单列表 
 			</div>
-			<div class="dd_shebei">
-				<table width="331">
-					<tr>
-						<td width="62">购买产品:</td>
-						<td width="125">酒店自助售货机mini版</td>
-						<td width="128"><img class="dd_weixin" src="images/share_weixin@2x.png"><p style="left: 272px; top: 5px; float: left; position: absolute; width: 52px; height: 2px;">微信支付
-						<p></td>
-					</tr>
-					<tr>
-						<td>订单号:</td>
-						<td>28982973709748709</td>
-					</tr>
-					<tr>
-						<td>设备号:</td>
-						<td>2898297379</td>
-						<td><p style="left: 258px; top: 68px; float: left; position: absolute; width: 62px;">实付:¥1500</p></td>
-					</tr>
-			  </table>
-		  </div>
 		</div>
-		<div class="dingdan">
-			<div class="dd_yh">
-				<img class="dd_tx" src="images/selected_gerenzhongxin@2x.png"><span class="dd_name">用户的名字</span><span class="dd_time">2018-05-04&nbsp16:34</span>
-			</div>
-			<div class="dd_shebei">
-				<table width="331">
-					<tr>
-						<td width="62">购买产品:</td>
-						<td width="125">酒店自助售货机mini版</td>
-						<td width="128"><img class="dd_weixin" src="images/share_weixin@2x.png"><p style="left: 273px; top: 8px; float: left; position: absolute; width: 53px;">微信支付
-						<p></td>
-					</tr>
-					<tr>
-						<td>订单号:</td>
-						<td>28982973709748709</td>
-					</tr>
-					<tr>
-						<td>设备号:</td>
-						<td>2898297379</td>
-						<td><p style="left: 258px; top: 68px; float: left; position: absolute; width: 62px;">实付:¥1500</p></td>
-					</tr>
-			  </table>
-		  </div>
+		<div id="listcontent"></div> 
+		<div class="pagesdiv">
+			<div class="lodimg"><img src="images/loading.gif"/></div><div class="lodtxt">加载中...
+	  		<input name="redgiftNextPage" type="hidden" id="redgiftNextPage" value="1">
 		</div>
-		<div class="dingdan">
-			<div class="dd_yh">
-				<img class="dd_tx" src="images/selected_gerenzhongxin@2x.png"><span class="dd_name">用户的名字</span><span class="dd_time">2018-05-04&nbsp16:34</span>
-			</div>
-			<div class="dd_shebei">
-				<table width="331">
-					<tr>
-						<td width="62">购买产品:</td>
-						<td width="125">酒店自助售货机mini版</td>
-						<td width="128"><img class="dd_weixin" src="images/share_weixin@2x.png"><p style="left: 274px; top: 7px; float: left; position: absolute; width: 49px; height: 0px;">微信支付
-						<p></td>
-					</tr>
-					<tr>
-						<td>订单号:</td>
-						<td>28982973709748709</td>
-					</tr>
-					<tr>
-						<td>设备号:</td>
-						<td>2898297379</td>
-						<td><p style="left: 258px; top: 68px; float: left; position: absolute; width: 62px;">实付:¥1500</p></td>
-					</tr>
-			  </table>
-		  </div>
-		</div>
-	</div>
+	
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script> 
+<script type="text/javascript" src="js/require.js"></script>
+<script type="text/javascript">  
+
+     $(function(){   
+     //准备data 
+    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTIwIiwicmVnaXN0cmF0aW9uX2lkIjoiYm9ibyIsImlhdCI6MTUyNjQ4MzQ5MiwiZXhwIjoxNTI3MDg4MjkyfQ==.33103622fb3cd6540c9c6646c5a18e4a08b3f61169ee84459853163b2ae081a1";
+	    ajax_method("m/orderlist","get",{'rows':10,'page':0},token,function (res) {  
+			    if(res.code == 200){ 
+			        var datacount=res.data.length;
+					 for (var i=0; i<datacount; i++) {
+						 var html='<div class="dingdan"><div class="dd_yh">';
+			                 html+='<img class="dd_tx" src="'+res.data[i]['headimg']+'">';
+			                 html+='<span class="dd_name">'+res.data[i]['nickname']+'</span>';
+			                 html+='<span class="dd_time">'+res.data[i]['create_time']+'</span>';
+			                 html+='</div><div class="dd_shebei"><table width="331"><tr>';
+			                 html+='<td width="102">购买产品:</td>';
+			                 html+='<td width="125">'+res.data[i]['goods']+'</td>';
+			                 html+='<td width="128"><img class="dd_weixin" src="images/share_weixin@2x.png">';
+			                 html+='<p style="left: 274px; top: -6px; float: left; position: absolute; width: 49px; height: 0px;">'+res.data[i]['pay_type']+'支付<p>';
+			                 html+='</td></tr><tr><td>订单号:</td>';  
+							 html+='<td>'+res.data[i]['order_sn']+'</td>'; 
+							 html+='</tr><tr><td>设备号:</td>';
+							 html+='<td>'+res.data[i]['device_id']+'</td>';  
+			                 html+='<td><p style="left: 258px; top: 68px; float: left; position: absolute; width: 62px;">实付:¥'+res.data[i]['money']+'</p></td>';
+			                html+='	</tr></table></div></div>'; 
+							$("#listcontent").append(html);
+					 } 
+			    }else{   
+					$(".pagesdiv").html('<div class="lodtxt empty">无更多</div>');
+					$(".pagesdiv").hide();
+			    }
+			});  
+            $(window).scroll(function () {
+		        var scrollTop = $(this).scrollTop();
+		        var scrollHeight = $(document).height();
+		        var windowHeight = $(this).height();
+		        if (scrollTop + windowHeight == scrollHeight) {
+					$(".pagesdiv").show();
+					var page=parseInt($("#redgiftNextPage").val());
+					if(!page || page==''){
+					   $(".pagesdiv").html('<div class="lodtxt empty">无更多</div>');
+					   $(".pagesdiv").show();return;
+				   }else{  
+                		ajax_method("m/orderlist","get",{'rows':10,'page':page},token,function (res) {  
+                			console.log(res.data[0]);
+						    if(res.data[0]){ 
+						        var datacount=res.data.length;
+								 for (var i=0; i<datacount; i++) {
+									 var html='<div class="dingdan"><div class="dd_yh">';
+						                 html+='<img class="dd_tx" src="'+res.data[i]['headimg']+'">';
+						                 html+='<span class="dd_name">'+res.data[i]['nickname']+'</span>';
+						                 html+='<span class="dd_time">'+res.data[i]['create_time']+'</span>';
+						                 html+='</div><div class="dd_shebei"><table width="331"><tr>';
+						                 html+='<td width="102">购买产品:</td>';
+						                 html+='<td width="125">'+res.data[i]['goods']+'</td>';
+						                 html+='<td width="128"><img class="dd_weixin" src="images/share_weixin@2x.png">';
+						                 html+='<p style="left: 274px; top: -6px; float: left; position: absolute; width: 49px; height: 0px;">'+res.data[i]['pay_type']+'支付<p>';
+						                 html+='</td></tr><tr><td>订单号:</td>';  
+										 html+='<td>'+res.data[i]['order_sn']+'</td>'; 
+										 html+='</tr><tr><td>设备号:</td>';
+										 html+='<td>'+res.data[i]['device_id']+'</td>';  
+						                 html+='<td><p style="left: 258px; top: 68px; float: left; position: absolute; width: 62px;">实付:¥'+res.data[i]['money']+'</p></td>';
+						                html+='	</tr></table></div></div>'; 
+										$("#listcontent").append(html);
+								 }
+								 $("#redgiftNextPage").val(parseInt($("#redgiftNextPage").val())+1);
+						    }else{   
+								$(".pagesdiv").html('<div class="lodtxt empty">无更多</div>');
+								$(".pagesdiv").hide();
+						    }
+						});     
+					}
+		        }
+		    });
+      });
+   
+</script>	
 </body>
 </html>
