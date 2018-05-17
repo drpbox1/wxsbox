@@ -16,11 +16,11 @@
 		</div> 
 		<div class="beijingyanse">
 			<select id="shitu">
-			  <option value="volvo">日视图</option>
-			  <option value="saab">周视图</option>
-			  <option value="opel">月视图</option>
-			</select> 
-		</div>
+			  <option value="1">日视图</option>
+			  <option value="2">周视图</option>
+			  <option value="3">月视图</option>
+			</select>  
+		</div> 
 		<div class="page-container"> 
 				<div id="main" style="width: 100%;height:400px; margin: 0 auto; margin-top: 30px;"></div>
 		</div> 
@@ -32,91 +32,206 @@
 
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script src="js/echarts.js"></script> 
-<script type="text/javascript"> 
-
-    // 基于准备好的dom，初始化echarts实例
-    var app = echarts.init(document.getElementById('main'));
-
-
+<script type="text/javascript" src="js/require.js"></script>
+<script type="text/javascript">  
+   // 基于准备好的dom，初始化echarts实例
+    var app = echarts.init(document.getElementById('main')); 
     app.title = '商品';
 
-    // option = {
-    //     tooltip: {
-    //         trigger: 'axis',
-    //         axisPointer: {
-    //             type: 'cross',
-    //             crossStyle: {
-    //                 color: '#999'
-    //             }
-    //         }
-    //     }, 
-    //     legend: {
-    //         data:['商品数量','营收']
-    //     },
-    //     xAxis: [
-    //         {
-    //             type: 'category',
-    //             data: [820, 932, 901, 934, 1290, 1330, 1320],
-    //             axisPointer: {
-    //                 type: 'shadow'
-    //             }
-    //         }
-    //     ],
-    //     yAxis: [
-    //         {
-    //             type: 'value',
-    //             name: '商品数量(总计：1)',
-    //             min: 0,
-    //             max: 10000,
-    //             interval: 100,
-    //             axisLabel: {
-    //                 formatter: '1'
-    //             }
-    //         },
-    //         {
-    //             type: 'value',
-    //             name: '营收(总计：1 ¥)',
-    //             min: 0,
-    //             max: 10000 ,
-    //             interval:  100,
-    //             axisLabel: {
-    //                 formatter: '1 ¥'
-    //             }
-    //         }
-    //     ],
-    //     series: [
-    //         {
-    //             name:'商品数量',
-    //             type:'bar',
-    //             data:[820, 932, 901, 934, 1290, 1330, 1320], 
-    //         },
-    //         {
-    //             name:'营收',
-    //             type:'bar',
-    //             yAxisIndex: 1,
-    //             data:[820, 932, 901, 934, 1290, 1330, 1320],
-    //         }
-    //     ], 
-    // };
+    //准备data 
+    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTIwIiwicmVnaXN0cmF0aW9uX2lkIjoiYm9ibyIsImlhdCI6MTUyNjQ4MzQ5MiwiZXhwIjoxNTI3MDg4MjkyfQ==.33103622fb3cd6540c9c6646c5a18e4a08b3f61169ee84459853163b2ae081a1";
 
-	option = {
-	    xAxis: {
-	        type: 'category',
-	        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-	    },
-	     yAxis: {
-        	type: 'value'
-    	},
-	    series: [{
-	        data: [20, 32, 1, 34, 290, 330, 320],
-	        type: 'line',
-	        smooth: true
-	    }]
-	};
+   ajax_method("m/statorder","get",{type : 1},token,function (res) {  
+        if(res.code == 200){  
+            // for(i  in res.data){   //variable 为属性名
+            //   console.log(res.data[i])   //name age
+            // }
 
+            // res.data.forEach(function(val, index) { 
+            //     console.log(val, index);
+            // });   
 
-    // 使用刚指定的配置项和数据显示图表。
-    app.setOption(option);
+            // $.each(res.data,function(key,value){ 
+            //     if(res.data.length-1 > key) {
+            //          (value+",")
+            //      }else{
+            //         (value)
+            //     }
+            //     console.log(value.time);
+            // })
+
+            // option = {
+            //     tooltip: {
+            //         trigger: 'axis',
+            //         axisPointer: {
+            //             type: 'cross',
+            //             crossStyle: {
+            //                 color: '#999'
+            //             }
+            //         }
+            //     }, 
+            //     legend: {
+            //         data:['商品数量','营收']
+            //     },
+            //     xAxis: [
+            //         {
+            //             type: 'category',
+            //             data: [820, 932, 901, 934, 1290, 1330, 1320],
+            //             axisPointer: {
+            //                 type: 'shadow'
+            //             }
+            //         }
+            //     ],
+            //     yAxis: [
+            //         {
+            //             type: 'value',
+            //             name: '商品数量(总计：1)',
+            //             min: 0,
+            //             max: 10000,
+            //             interval: 100,
+            //             axisLabel: {
+            //                 formatter: '1'
+            //             }
+            //         },
+            //         {
+            //             type: 'value',
+            //             name: '营收(总计：1 ¥)',
+            //             min: 0,
+            //             max: 10000 ,
+            //             interval:  100,
+            //             axisLabel: {
+            //                 formatter: '1 ¥'
+            //             }
+            //         }
+            //     ],
+            //     series: [
+            //         {
+            //             name:'商品数量',
+            //             type:'bar',
+            //             data:[820, 932, 901, 934, 1290, 1330, 1320], 
+            //         },
+            //         {
+            //             name:'营收',
+            //             type:'bar',
+            //             yAxisIndex: 1,
+            //             data:[820, 932, 901, 934, 1290, 1330, 1320],
+            //         }
+            //     ], 
+            // };  
+            var  xtime = Array();  
+            var  ycount = Array(); 
+            var  ymoney = Array();
+            var max_money = 0;
+            var max_count = 0;
+            $.each(res.data,function(key,value){ 
+                   xtime.push(value.time);
+                   ycount.push(value.count);
+                   ymoney.push(value.money); 
+                   max_money += value.money;
+                   max_count += parseInt(value.count);
+            })  
+            console.log(res.data); 
+            option = {
+                xAxis:{
+                    type: 'category', 
+                    data: xtime
+                },
+                 yAxis: [
+                 {
+                    type: 'value', 
+                    name: '数量', 
+                 },
+                 {
+                    type: 'value',  
+                    name: '营收',
+                    min: 0,
+                    max: max_money,
+                    interval: max_money/5, 
+                 }
+                 ],
+                series: [{
+                    name: '数量',
+                    data: ycount, 
+                    type: 'bar'
+                },{
+                    name: '营收',
+                    yAxisIndex: 1,
+                    data: ymoney, 
+                    type: 'bar'
+                }
+                ]
+            }; 
+            // 使用刚指定的配置项和数据显示图表。
+            app.setOption(option);
+
+            //订单量
+            $("#dingdanliang").html("订单量:"+max_count+"个");
+            // 总收入
+            $("#zongshouru").html("总收入:"+max_money.toFixed(2)+"元");
+        }   
+    }) 
+
+     $(function(){ 
+
+            $('#shitu').on('click', function(){
+                var type =  $('#shitu').val();  
+                ajax_method("m/statorder","get",{type :type},token,function (res) {  
+                if(res.code == 200){  
+                    var  xtime = Array();  
+                    var  ycount = Array(); 
+                    var  ymoney = Array();
+                    var max_money = 0;
+                    var max_count = 0;
+                    $.each(res.data,function(key,value){ 
+                           xtime.push(value.time);
+                           ycount.push(value.count);
+                           ymoney.push(value.money); 
+                           max_money += value.money;
+                           max_count += parseInt(value.count);
+                    })  
+                    console.log(res.data); 
+                    option = {
+                        xAxis:{
+                            type: 'category', 
+                            data: xtime
+                        },
+                         yAxis: [
+                         {
+                            type: 'value', 
+                            name: '数量', 
+                         },
+                         {
+                            type: 'value',  
+                            name: '营收',
+                            min: 0,
+                            max: max_money,
+                            interval: max_money/5, 
+                         }
+                         ],
+                        series: [{
+                            name: '数量',
+                            data: ycount, 
+                            type: 'bar'
+                        },{
+                            name: '营收',
+                            yAxisIndex: 1,
+                            data: ymoney, 
+                            type: 'bar'
+                        }
+                        ]
+                    }; 
+                    // 使用刚指定的配置项和数据显示图表。
+                    app.setOption(option);
+
+                    //订单量
+                    $("#dingdanliang").html("订单量:"+max_count+"个");
+                    // 总收入
+                    $("#zongshouru").html("总收入:"+max_money.toFixed(2)+"元");
+                }   
+                }) 
+            });
+        });
+   
 </script>
 
 </body>

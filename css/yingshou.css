@@ -5,7 +5,7 @@
 #shitu{
 	left: 24px;
 	top: 69px;
-	width: 85px;
+	width: 20%;
 	height: 27px;
 	line-height: 20px;
 	background-color: rgba(75, 123, 249, 1);
@@ -85,7 +85,7 @@
 #dingdanliang{
 	left: 42px;
 	top: 560px;
-	width: 57px;
+	width: 30%;
 	height: 23px;
 	line-height: 20px;
 	color: rgba(16, 16, 16, 1);
@@ -98,7 +98,7 @@
 #zongshouru{
 	left: 42px;
 	top: 615px;
-	width: 57px;
+	width: 30%;
 	height: 23px;
 	line-height: 20px;
 	color: rgba(16, 16, 16, 1);
