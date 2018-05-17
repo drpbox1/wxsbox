@@ -8,22 +8,19 @@
 <style type="text/css">
 .bh_shebei{
 	width: 100%;
-	height: 32px;
-	border: solid rgba(136, 136, 136, 1);
+	height: 40px;
+	/*border: solid rgba(136, 136, 136, 1);*/
 	border-width: 0px 0px 1px 0px;
 	left: 14px;
 	top: 83px;
-	font-size: 12px;
+	font-size: 9px;
 }
 .bh_tupian{
 	left: 14px;
 	top: 10px;
-	width: 170px;
-	height: 110px;
-	line-height: 20px;
+	width: 100%;  
 	border-radius: 6px;
-	text-align: center;
-	border: 2px solid rgba(16, 16, 16, 1);
+	text-align: center; 
 }
 .bh_tp{
 	left: 1px;
@@ -31,12 +28,12 @@
 	width: 30%;
 	height: 115px;
 	
-}
+} 
 #yjbuhuo{
 	right: 15px;
 	top: 80px;
-	width: 50px;
-	height: 17px;
+	width: 25%;
+	height: 22px;
 	border-radius: 4px;
 	background-color: rgba(189, 13, 19, 1);
 	color: rgba(16, 16, 16, 1);
@@ -49,19 +46,18 @@
 }
 #buhuo{
 	width: 100%;
-	height: 516px;
+	/*height: 516px;*/
 	float: left;
 	position: relative;
 }
 #bh_shangping1{
 	width: 49%;
-	height: 281px;
+	/*height: 281px;*/
 	line-height: 20px;
 	text-align: center;
 	border: solid rgba(136, 136, 136, 1);
-	border-width: 1px 1px 1px 1px;
-	float: left;
-	
+	border-width: 1px;
+	float: left; 
 }
 #bh_shangping2{
 	width: 49%;
@@ -74,19 +70,19 @@
 }
 .bh_shp p{
 	top: 30px;
-	height: 34px;
-	width: 180px;
-	border: solid rgba(136, 136, 136, 1);
-	border-width: 0px 0px 1px 0px;
+	/*height: 34px;*/
+	/*width: 180px;*/
+	/*border: solid rgba(136, 136, 136, 1);*/
+	/*border-width: 0px 0px 1px 0px;*/
 	font-size: 12px;
-	text-align: left ;
+	text-align: left;
 }
 .bh_shp{
-	width: 192px;
-	height: 115px;
+	/*width: 192px;*/
+	/*height: 115px;*/
 }
 .bh_anniu{
-	width: 48px;
+	/*width: 48px;*/
 	height: 18px;
 	border-radius: 4px;
 	background-color: rgba(189, 13, 19, 1);
@@ -98,11 +94,15 @@
 	float: right;
 }
 .bh_an{
-	width: 18px;
+	/*width: 18px;*/
 	height: 18px;
 	border-radius: 50%;
 	border:1px solid rgba(136, 136, 136, 1);
 }
+.pagesdiv{ width:98%; height:40px; text-align:center; margin:2px 1%;display:none}
+.pagesdiv .lodimg{ width:30px; height:30px; display:inline-block; margin-top:5px;}
+.pagesdiv .lodtxt{ display:inline-table; margin-top:-8px; margin-left:5px}
+.pagesdiv .empty{margin-top:9px;}
 </style>
 </head>
 <body>
@@ -115,7 +115,9 @@
 			<span style="top: 80px;left:14px;float: left;position: absolute;">软件园设备（862631037541835）</span><input id="yjbuhuo" type="button" name="yjbuhuo" value="一键补货">
 		</div>
 		<div id="buhuo">
-			<div id="bh_shangping1">
+			  
+		  	 
+		  	<!-- <div id="bh_shangping1">
 				<div class="bh_tp">
 					<img  class="bh_tupian" src="images/">
 				</div>
@@ -124,45 +126,100 @@
 					<p><span>货道:1</span></p>
 					<p><span>缺货数量:48</span></p>
 					<p><input class="bh_an" type="button" name="bh_an"><input class="bh_anniu" type="button" name="buhuo" value="补货"></p>
-			  	</div>
-		  	</div>
-		  	<div id="bh_shangping2">
-				<div class="bh_tp">
-					<img  class="bh_tupian" src="images/">
-				</div>
-				<div class="bh_shp">
-					<p><span>商品:康师傅冰红茶(瓶装)</span></p>
-					<p><span>货道:1</span></p>
-					<p><span>缺货数量:48</span></p>
-					<p><input class="bh_an" type="button" name="bh_an"><input class="bh_anniu" type="button" name="buhuo" value="补货"></p>
-			  </div>
-		  	</div>
-		  	<div id="bh_shangping1">
-				<div class="bh_tp">
-					<img  class="bh_tupian" src="images/">				</div>
-				<div class="bh_shp">
-					<p><span>商品:康师傅冰红茶(瓶装)</span></p>
-					<p><span>货道:1</span></p>
-					<p><span>缺货数量:48</span></p>
-					<p><input class="bh_an" type="button" name="bh_an"><input class="bh_anniu" type="button" name="buhuo" value="补货"></p>
-		  	  </div>
-	  	  </div>
-		  	<div id="bh_shangping2">
-				<div class="bh_tp">
-					<img  class="bh_tupian" src="images/">
-				</div>
-				<div class="bh_shp">
-					<p><span>商品:康师傅冰红茶(瓶装)</span></p>
-					<p><span>货道:1</span></p>
-					<p><span>缺货数量:48</span></p>
-					<p><input class="bh_an" type="button" name="bh_an"><input class="bh_anniu" type="button" name="buhuo" value="补货"></p>
-			  </div>
-	  	  </div>
-		<div>
-			<img id="selected_shouye" src="images/selected_shouye@2x.png">
-			<img id="selected_shebei" src="images/selected_shebeiguanli@2x.png">
-			<img id="selected_gerenzhongxing" src="images/selected_gerenzhongxin@2x.png">
-		</div>
+			    </div>
+	  	  	</div> -->
+
+	  	  </div> 
+	  	  <div class="pagesdiv">
+			<div class="lodimg"><img src="images/loading.gif"/></div><div class="lodtxt">加载中...
+	  		<input name="redgiftNextPage" type="hidden" id="redgiftNextPage" value="1">
+			</div> 
+		  </div>  
 	</div>
+
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script> 
+<script type="text/javascript" src="js/require.js"></script>
+<script type="text/javascript">   
+     $(function(){   
+     var device_id = "435254136549";
+     //准备data 
+    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTIwIiwicmVnaXN0cmF0aW9uX2lkIjoiYm9ibyIsImlhdCI6MTUyNjQ4MzQ5MiwiZXhwIjoxNTI3MDg4MjkyfQ==.33103622fb3cd6540c9c6646c5a18e4a08b3f61169ee84459853163b2ae081a1";
+	    	ajax_method("m/replenishItem","get",{'id':device_id},token,function (res) {  
+			    if(res.code == 200){ 
+			        var datacount=res.data.length;
+					 for (var i=0; i<datacount; i++) {
+						 var html='<div id="bh_shangping1"><div class="bh_tp">';
+			                 html+='<img  class="bh_tupian" src="'+res.data[i]['goods_img']+'"></div>';
+			                 html+='<div class="bh_shp">'; 
+			                 html+='<p><span>商品:'+res.data[i]['goods_name']+'</span></p>';
+			                 html+='<p><span>货道:'+res.data[i]['lane']+'</span></p>';
+			                 html+='<p><span>数量:'+res.data[i]['num']+'</span></p>';	
+			                 html+='</div>'; 
+							$("#buhuo").append(html);
+					 } 
+			    }else{   
+					$(".pagesdiv").html('<div class="lodtxt empty">无更多</div>');
+					$(".pagesdiv").hide();
+			    }
+			});  
+            $(window).scroll(function () {
+		        var scrollTop = $(this).scrollTop();
+		        var scrollHeight = $(document).height();
+		        var windowHeight = $(this).height();
+		        if (scrollTop + windowHeight == scrollHeight) {
+					$(".pagesdiv").show();
+					var page=parseInt($("#redgiftNextPage").val());
+					if(!page || page==''){
+					   $(".pagesdiv").html('<div class="lodtxt empty">无更多</div>');
+					   $(".pagesdiv").show();return;
+				   }else{  
+                		ajax_method("m/replenishItem","get",{'id':device_id},token,function (res) {  
+                			console.log(res.data[0]);
+						    if(res.data[0]){ 
+						        var datacount=res.data.length;
+								 for (var i=0; i<datacount; i++) {
+									 var html='<div id="bh_shangping1"><div class="bh_tp">';
+					                 html+='<img  class="bh_tupian" src="'+res.data[i]['goods_img']+'"></div>';
+					                 html+='<div class="bh_shp">'; 
+					                 html+='<p><span>商品:'+res.data[i]['goods_name']+'</span></p>';
+					                 html+='<p><span>货道:'+res.data[i]['lane']+'</span></p>';
+					                 html+='<p><span>数量:'+res.data[i]['num']+'</span></p>';	
+					                 html+='</div>'; 
+									$("#buhuo").append(html);
+								 }
+								 $("#redgiftNextPage").val(parseInt($("#redgiftNextPage").val())+1);
+						    }else{   
+								$(".pagesdiv").html('<div class="lodtxt empty">无更多</div>');
+								$(".pagesdiv").hide();
+						    }
+						});     
+					}
+		        }
+		    });
+			$('#qh_sousuo').on('click', function(){
+			                var deviceid =  $('#qh_id').val();  
+			              	ajax_method("m/replenish","get",{'deviceid':deviceid,'rows':20,'page':0},token,function (res) {  
+							    if(res.data[0]){ 
+							        var datacount=res.data.length;
+									 for (var i=0; i<datacount; i++) {
+										 var html='<div id="qh_shebei"><div class="qh_bh">';
+							                 html+='<span class="qh_sb">'+res.data[i]['devicename']+res.data[i]['deviceid']+'</span>';
+							                 html+='<input class="buhuo" type="button" name="buhuo" value="补货" id="'+res.data[i]['deviceid']+'">';
+							                 html+='</div></div>'; 
+											$("#listcontent").html(html);
+									 } 
+									 $("#redgiftNextPage").val(parseInt($("#redgiftNextPage").val())+1);
+							    }else{   
+							    	console.log(deviceid);
+									$("#listcontent").html('');
+							    }
+							});  
+			});
+      });
+   
+</script>	
+
+
+
 </body>
 </html>
