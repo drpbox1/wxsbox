@@ -171,8 +171,7 @@
         }   
     }) 
 
-     $(function(){ 
-
+     $(function(){  
             $('#shitu').on('click', function(){
                 var type =  $('#shitu').val();  
                 ajax_method("m/statorder","get",{type :type},token,function (res) {  
