@@ -46,13 +46,13 @@
 	}
 	#tuichu{
 		left: 33px;
-		top: 358px;
+		top: 300px;
 		width: 85%;
-		height: 30px;
+		height: 39px;
 		border-radius: 4px;
 		background-color: rgba(63, 81, 181, 1);
 		color: rgba(255, 255, 255, 1);
-		font-size: 12px;
+		font-size: 14px;
 		text-align: center;
 		font-family: Microsoft Yahei;
 		border: 1px solid rgba(63, 81, 181, 1);
@@ -115,21 +115,32 @@
 					<label for="male" class="choose-label"></label>
 				</div> 
 			</div>
-			<div id="qchc">
-				<span style="left: 29px;top: 155px;float: left;position: absolute;font-size: 14px;">清除缓存</span>
-				<p style="top:155px;right: 46px;float: left;position: absolute;font-size: 14px;color: #BBBBBB;">286K</p>
-			</div>
 			<div id="yjfk">
-				<span style="left: 29px;top: 217px;float: left;position: absolute;font-size: 14px;">意见反馈</span>
-			</div>
-			<div id="jcgx">
-				<span style="left: 29px;top: 280px;float: left;position: absolute;font-size: 14px;">检查更新</span>
-				<p style="top:280px;right:46px;float: left;position: absolute;font-size: 14px;color: #BBBBBB;">当前版本1.0.0</p>
+				<span id="fankui" style="left: 29px;top: 159px;float: left;position: absolute;font-size: 14px;">意见反馈</span>
 			</div>
 	  </div>
 		<div>
 			<input id="tuichu" type="submit" name="bangding" value="退出登录">
 		</div>
 	</div>
+
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/require.js"></script>
+	<script>
+
+		$("#fankui").click(function(){
+    		location.href='yijianfankui.html';
+		});
+		$("#tuichu").click(function(){
+			 var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMjAsInJlZ2lzdHJhdGlvbl9pZCI6ImJvYm8iLCJpYXQiOjE1MjU0MTAwMjcsImV4cCI6MTUyNjAxNDgyN30=.abb5192c44c4dfda3dfb33e7a138b73bf6af7ee28617bdba2b1a598a769c9ce9";
+				ajax_method("m/logout","get","",token,function (res) {
+			        if(res.code == 200){ 
+				        window.location.href="login.html";
+					}else{
+						alert(res.msg);
+						}
+				    });
+		});
+</script>
 </body>
 </html>

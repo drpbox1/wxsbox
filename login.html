@@ -51,7 +51,7 @@
 					 ajax_method("m/login","get",{rsa: rsa},"",function (res) {   	
             		 if(res.code == 200){
             		 	 sessionStorage.setItem("token", res.data['ww-token']);
-            		 	 window.location.href="index.html"; 
+            		 	 location.href="index.html"; 
 						}else{
 							alert(res.msg);
 						}	
