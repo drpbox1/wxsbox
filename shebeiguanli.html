@@ -9,36 +9,49 @@
 	<style type="text/css">
 	#sb_list{
 		width: 100%;
-		height: 150px;
+		height: 120px;
 		left: 0px;
-		top: 66px;
+		/*top: 66px;*/
 		line-height: 20px;
 		opacity: 0.8;
 		text-align: left;
 		border: 1px solid rgba(187, 187, 187, 1);
 		float: left;
-		position: absolute;
+		position: relative;
 	}
 	.sb_shebeihao{
-		width: 146px;
+		width: 44%;
 		height: 19px;
 		line-height: 19px;
 		color: #3F51B5;
 		font-size: 13px;
 		text-align: center;
 		font-family: Arial;
-		left: 12px;
+		/*left: 12px;*/
 		top: 7px;
 		float: left;
 		position: absolute;
 	}
-	#sb_zhuangtai{
+	#sb_zhuangtai_on{
 		right: 12px;
-		top: 123px;
+		top: 95px;
 		width: 47px;
 		height: 20px;
 		border-radius: 4px;
 		color: rgba(229, 28, 35, 1);
+		font-size: 12px;
+		text-align: center;
+		font-family: Microsoft Yahei;
+		border: 1px solid rgba(136, 136, 136, 1);
+		float: left;
+		position: absolute;
+	}
+	#sb_zhuangtai_off{
+		right: 12px;
+		top: 95px;
+		width: 47px;
+		height: 20px;
+		border-radius: 4px; 
 		font-size: 12px;
 		text-align: center;
 		font-family: Microsoft Yahei;
@@ -67,29 +80,15 @@
 		<div class="head">
 			<img class="fanhui" src="images/btn_fanhui@3x.png">设备管理
 		</div>
-		<div id="sb_list">
-			<div>
-				<p class="sb_shebeihao">设备编号：28982973709</p><span style="right: 18px;top: 7px;width: 25px;height: 23px;line-height: 17px;color: rgba(63, 81, 181, 1);font-size: 12px;text-align: center;font-family: Arial;float: left;position: absolute;">正常</span>
-			</div>
-			<div>
-				<img style="left: 11px;top: 60px;width: 15px;height: 15px;float: left;position: absolute;" src="images/icon_dizhi@2x.png"><p id="sb_dizhi">地址：成都市高新区天府软件园G5</p>
-			</div>
-			<div style="top: 79px;left: 12px;width: 99%; float: left;position: absolute;">
-				<ul style="left: 19px;float: left;position: absolute;">
-					<li style="height: 35px;">当日收入:¥200</li>
-					<li style="height: 35px;">启动次数：380</li>
-				</ul>
-			</div>
-			<div>
-				<input id="sb_zhuangtai" type="button" name="zhuangtai" value="在线">
-			</div>
-		</div>
+		<div id="listcontent"></div> 
+		 
 		<div>
 			<img id="selected_shouye" src="images/selected_shouye@2x.png">
 			<img id="selected_shebei" src="images/selected_shebeiguanli@2x.png">
 			<img id="selected_gerenzhongxing" src="images/selected_gerenzhongxin@2x.png">
 		</div>
 	</div>
+
 
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="js/require.js"></script>
@@ -103,6 +102,75 @@
 		$("#selected_gerenzhongxing").click(function(){
     		location.href='gerenzhongxin.html';
 		});
+
+		$(function(){    
+		     //准备data 
+		    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTIwIiwicmVnaXN0cmF0aW9uX2lkIjoiYm9ibyIsImlhdCI6MTUyNjQ4MzQ5MiwiZXhwIjoxNTI3MDg4MjkyfQ==.33103622fb3cd6540c9c6646c5a18e4a08b3f61169ee84459853163b2ae081a1";
+			    	ajax_method("m/devicelist","get",{'rows':10,'page':0},token,function (res) {  
+					    if(res.code == 200){ 
+					        var datacount=res.data.length;
+							 for (var i=0; i<datacount; i++) {
+								 var html='<div id="sb_list"><div>';
+					                 html+='<p class="sb_shebeihao">设备编号：'+res.data[i]['devicenum']+'</p><span style="right: 18px;top: 22px;width: 50%;height: 23px;line-height: 17px;color: rgba(63, 81, 181, 1);font-size: 12px;text-align: center;font-family: Arial;float: left;position: absolute;">设备名称：'+res.data[i]['devicename']+'</span>';
+					                 html+='</div><div><img style="left: 11px;top: 60px;width: 15px;height: 15px;float: left;position: absolute;" src="images/icon_dizhi@2x.png">'; 
+					                 html+='<p id="sb_dizhi">地址：'+res.data[i]['address']+'</p>';
+					                 html+='</div><div style="top: 79px;left: 12px;width: 99%; float: left;position: absolute;"><ul style="left: 19px;float: left;position: absolute;">';
+					                 html+='<li style="height: 35px;">当日收入:¥'+Number(res.data[i]['goods_amount'])+'</li>';	
+					                 html+='</ul></div><div>';  
+					                 if(res.data[i]['devstatus'] == 1){
+                              			html+='<div><input id="sb_zhuangtai_on" type="button" name="zhuangtai" value="在线"></div></div>'; 
+								 		}else{
+								 			html+='<div><input id="sb_zhuangtai_off" type="button" name="zhuangtai" value="离线"></div></div>'; 
+								 		}
+									$("#listcontent").append(html);
+							 } 
+					    }else{   
+							$(".pagesdiv").html('<div class="lodtxt empty">无更多</div>');
+							$(".pagesdiv").hide();
+					    }
+					});  
+		            $(window).scroll(function () {
+				        var scrollTop = $(this).scrollTop();
+				        var scrollHeight = $(document).height();
+				        var windowHeight = $(this).height();
+				        if (scrollTop + windowHeight == scrollHeight) {
+							$(".pagesdiv").show();
+							var page=parseInt($("#redgiftNextPage").val());
+							if(!page || page==''){
+							   $(".pagesdiv").html('<div class="lodtxt empty">无更多</div>');
+							   $(".pagesdiv").show();return;
+						   }else{  
+		                		ajax_method("m/replenishItem","get",{'id':device_id},token,function (res) {  
+		                			console.log(res.data[0]);
+								    if(res.data[0]){ 
+								        var datacount=res.data.length;
+										 for (var i=0; i<datacount; i++) {
+											 var html='<div id="sb_list"><div>';
+							                 html+='<p class="sb_shebeihao">设备编号：'+res.data[i]['devicenum']+'</p><span style="right: 18px;top: 22px;width: 50%;height: 23px;line-height: 17px;color: rgba(63, 81, 181, 1);font-size: 12px;text-align: center;font-family: Arial;float: left;position: absolute;">设备名称：'+res.data[i]['devicename']+'</span>';
+							                 html+='</div><div><img style="left: 11px;top: 60px;width: 15px;height: 15px;float: left;position: absolute;" src="images/icon_dizhi@2x.png">'; 
+							                 html+='<p id="sb_dizhi">地址：'+res.data[i]['address']+'</p>';
+							                 html+='</div><div style="top: 79px;left: 12px;width: 99%; float: left;position: absolute;"><ul style="left: 19px;float: left;position: absolute;">';
+							                 html+='<li style="height: 35px;">当日收入:¥'+Number(res.data[i]['goods_amount'])+'</li>';	
+							                 html+='</ul></div><div>'; 
+							                 console.log(res.data[i]['devstatus']);
+							                 if(parseInt(res.data[i]['devstatus'])){
+		                              			html+='<div><input id="sb_zhuangtai_on" type="button" name="zhuangtai" value="在线"></div></div>'; 
+										 		}else{
+										 			html+='<div><input id="sb_zhuangtai_off" type="button" name="zhuangtai" value="离线"></div></div>'; 
+										 		}
+											$("#listcontent").append(html);
+										 }
+										 $("#redgiftNextPage").val(parseInt($("#redgiftNextPage").val())+1);
+								    }else{   
+										$(".pagesdiv").html('<div class="lodtxt empty">无更多</div>');
+										$(".pagesdiv").hide();
+								    }
+								});     
+							}
+				        }
+				    }); 
+		      });
+
 	</script>
 </body>
 </html>

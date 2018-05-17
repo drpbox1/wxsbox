@@ -18,7 +18,8 @@
 .bh_tupian{
 	left: 14px;
 	top: 10px;
-	width: 100%;  
+	width: 330%;  
+	height:120px;
 	border-radius: 6px;
 	text-align: center; 
 }
@@ -112,11 +113,9 @@
 			<img class="fanhui" src="images/btn_fanhui@3x.png">补货管理
 		</div>
 		<div class="bh_shebei">
-			<span style="top: 80px;left:14px;float: left;position: absolute;">软件园设备（862631037541835）</span><input id="yjbuhuo" type="button" name="yjbuhuo" value="一键补货">
+			<span style="top: 80px;left:14px;float: left;position: absolute;">软件园设备（<span id="devid"></span>）</span><input id="yjbuhuo" type="button" name="yjbuhuo" value="一键补货">
 		</div>
-		<div id="buhuo">
-			  
-		  	 
+		<div id="buhuo"> 
 		  	<!-- <div id="bh_shangping1">
 				<div class="bh_tp">
 					<img  class="bh_tupian" src="images/">
@@ -127,8 +126,7 @@
 					<p><span>缺货数量:48</span></p>
 					<p><input class="bh_an" type="button" name="bh_an"><input class="bh_anniu" type="button" name="buhuo" value="补货"></p>
 			    </div>
-	  	  	</div> -->
-
+	  	  	</div> --> 
 	  	  </div> 
 	  	  <div class="pagesdiv">
 			<div class="lodimg"><img src="images/loading.gif"/></div><div class="lodtxt">加载中...
@@ -142,6 +140,7 @@
 <script type="text/javascript">   
      $(function(){   
      var device_id = "435254136549";
+     $("#devid").html(device_id);
      //准备data 
     var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTIwIiwicmVnaXN0cmF0aW9uX2lkIjoiYm9ibyIsImlhdCI6MTUyNjQ4MzQ5MiwiZXhwIjoxNTI3MDg4MjkyfQ==.33103622fb3cd6540c9c6646c5a18e4a08b3f61169ee84459853163b2ae081a1";
 	    	ajax_method("m/replenishItem","get",{'id':device_id},token,function (res) {  
@@ -149,7 +148,7 @@
 			        var datacount=res.data.length;
 					 for (var i=0; i<datacount; i++) {
 						 var html='<div id="bh_shangping1"><div class="bh_tp">';
-			                 html+='<img  class="bh_tupian" src="'+res.data[i]['goods_img']+'"></div>';
+			                 html+='<img  class="bh_tupian" src="http://120.77.245.43:8084/'+res.data[i]['goods_img']+'"></div>';
 			                 html+='<div class="bh_shp">'; 
 			                 html+='<p><span>商品:'+res.data[i]['goods_name']+'</span></p>';
 			                 html+='<p><span>货道:'+res.data[i]['lane']+'</span></p>';
@@ -196,23 +195,11 @@
 					}
 		        }
 		    });
-			$('#qh_sousuo').on('click', function(){
-			                var deviceid =  $('#qh_id').val();  
-			              	ajax_method("m/replenish","get",{'deviceid':deviceid,'rows':20,'page':0},token,function (res) {  
-							    if(res.data[0]){ 
-							        var datacount=res.data.length;
-									 for (var i=0; i<datacount; i++) {
-										 var html='<div id="qh_shebei"><div class="qh_bh">';
-							                 html+='<span class="qh_sb">'+res.data[i]['devicename']+res.data[i]['deviceid']+'</span>';
-							                 html+='<input class="buhuo" type="button" name="buhuo" value="补货" id="'+res.data[i]['deviceid']+'">';
-							                 html+='</div></div>'; 
-											$("#listcontent").html(html);
-									 } 
-									 $("#redgiftNextPage").val(parseInt($("#redgiftNextPage").val())+1);
-							    }else{   
-							    	console.log(deviceid);
-									$("#listcontent").html('');
-							    }
+			$('#yjbuhuo').on('click', function(){  
+			              	ajax_method("m/allstock","put",{'id':device_id},token,function (res) {  
+							    if(res.code == 200){ 
+							    	console.log(res); 
+							    } 
 							});  
 			});
       });
