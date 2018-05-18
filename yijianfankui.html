@@ -14,7 +14,7 @@
 			<img class="fanhui" src="images/btn_fanhui@3x.png">意见反馈
 		</div>
 		<div id="shurukuang">
-			<textarea id="content" cols="56" rows="14">请输入您想要反馈的问题...</textarea>
+			<textarea id="content" cols="56" rows="14" placeholder="请输入您想要反馈的问题..."></textarea>
 	    </div>
 		<div>
 			<input id="yijiantijiao" type="submit" name="tijiao" value="提交">
@@ -24,6 +24,9 @@
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="js/require.js"></script>
 	<script>
+		$(".fanhui").click(function(){
+	    		location.href='shezhi.html';
+		 }); 
 		$("#yijiantijiao").click(function(){
 			var content=$("#content").val();
 			var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMjAsInJlZ2lzdHJhdGlvbl9pZCI6ImJvYm8iLCJpYXQiOjE1MjU0MTAwMjcsImV4cCI6MTUyNjAxNDgyN30=.abb5192c44c4dfda3dfb33e7a138b73bf6af7ee28617bdba2b1a598a769c9ce9";

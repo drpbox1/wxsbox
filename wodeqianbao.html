@@ -17,18 +17,21 @@
 			<p id="qb_yue">当前可用余额(元)</p>
 			<p id="qb_yuezhi">18890.56</p>
 		</div>
-		<div id="qb_tixian">
+		<!-- <div id="qb_tixian">
 			<img id="qb_tx" src="images/icon_tixian@2x.png"><p class="qb_wenzi">提现</p>
 			<div><img id="tx_jiantou" class="qb_jiantou" src="images/btn_jinru@2x.png"></div>
 		</div>
 		<div id="qb_bangding">
 			<img id="qb_bd" src="images/icon_bandingzhifubao@2x.png"><p class="qb_wenzi">绑定支付宝</p><div><img id="bd_jiantou" class="qb_jiantou" src="images/btn_jinru@2x.png"></div>
-		</div>
+		</div> -->
 	</div>
 
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="js/require.js"></script>
 	<script>
+		$(".fanhui").click(function(){
+    		location.href='gerenzhongxin.html';
+	    });
 		$("#tx_jiantou").click(function(){
     		location.href='tixian.html';
 		});

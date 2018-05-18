@@ -9,11 +9,11 @@
 	<script type="text/javascript" href="js/jquery-3.3.1.min.js"></script>
 </head>
 <body>
-	<div class="jiemian">
+	<div class="jiemian" style="background:rgba(75, 123, 249, 1);">
 		<div class="top"></div>
-		<div class="head">
-			<img class="fanhui" src="images/btn_fanhui@3x.png">
-		</div>
+		<!-- <div class="head"> -->
+			<!-- <img class="fanhui" src="images/btn_fanhui@3x.png"> -->
+		<!-- </div> -->
 		<div class="logo">
 			<div class="circle">
 				<p id="lgwenzi">大象盒子</p>
@@ -58,6 +58,9 @@
 		$("#selected_gerenzhongxing").click(function(){
     		location.href='gerenzhongxin.html';
 		});
+		if(!getUrlParam('openid')){ 
+            // window.location.href = remote_root+'/api.php?c=pay&a=get_wx_infos&deviceId='+getUrlParam('deviceId');
+        } 
 	</script>
 </body>
 </html>

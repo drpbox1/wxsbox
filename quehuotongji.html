@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/common.css">
 <style type="text/css">
 #qh_tongji{
-	top: 65px;
+	top: 70px;
 	width: 100%;
 	height: 40px;
 	float: left;
@@ -116,7 +116,10 @@
 	</div>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script> 
 <script type="text/javascript" src="js/require.js"></script>
-<script type="text/javascript">   
+<script type="text/javascript"> 
+	$(".fanhui").click(function(){
+    		location.href='index.html';
+	 });  
      $(function(){   
      //准备data 
     var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTIwIiwicmVnaXN0cmF0aW9uX2lkIjoiYm9ibyIsImlhdCI6MTUyNjQ4MzQ5MiwiZXhwIjoxNTI3MDg4MjkyfQ==.33103622fb3cd6540c9c6646c5a18e4a08b3f61169ee84459853163b2ae081a1";
@@ -126,7 +129,7 @@
 					 for (var i=0; i<datacount; i++) {
 						 var html='<div id="qh_shebei"><div class="qh_bh">';
 			                 html+='<span class="qh_sb">'+res.data[i]['devicename']+res.data[i]['deviceid']+'</span>';
-			                 html+='<input class="buhuo" type="button" name="buhuo" value="补货" id="'+res.data[i]['deviceid']+'">';
+			                 html+='<a href="buhuoguanli.html?id='+res.data[i]['deviceid']+'"><input class="buhuo" type="button" name="buhuo" value="补货" id="'+res.data[i]['deviceid']+'"></a>';
 			                 html+='</div></div>'; 
 							$("#listcontent").append(html);
 					 } 
@@ -153,7 +156,7 @@
 								 for (var i=0; i<datacount; i++) {
 									 var html='<div id="qh_shebei"><div class="qh_bh">';
 						                 html+='<span class="qh_sb">'+res.data[i]['devicename']+res.data[i]['deviceid']+'</span>';
-						                 html+='<input class="buhuo" type="button" name="buhuo" value="补货" id="'+res.data[i]['deviceid']+'">';
+						                 html+='<a href="buhuoguanli.html?id='+res.data[i]['deviceid']+'"><input class="buhuo" type="button" name="buhuo" value="补货" id="'+res.data[i]['deviceid']+'"></a>';
 						                 html+='</div></div>';  
 										$("#listcontent").append(html);
 								 }
@@ -184,7 +187,7 @@
 									$("#listcontent").html('');
 							    }
 							});  
-			});
+			}); 
       });
    
 </script>	

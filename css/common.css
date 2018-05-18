@@ -12,9 +12,12 @@ img{
 	background-color: transparent; 
 }
 .top{ 
-	height: 20px;
+	height: 25px;
 	background-color: rgba(75, 123, 249, 1); 
     padding:0 1em; box-sizing:border-box;
+}
+.jiemian{
+	background-color: rgba(75, 123, 249, 1); 
 }
 .head{ 
 	height: 45px;
