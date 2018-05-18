@@ -93,6 +93,9 @@
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="js/require.js"></script>
 	<script>
+		$(".fanhui").click(function(){
+    		location.href='index.html';
+	 	});
 		$("#selected_shouye").click(function(){
     		location.href='index.html';
 		});
@@ -124,9 +127,9 @@
 								 		}
 									$("#listcontent").append(html);
 							 } 
-					    }else{   
-							$(".pagesdiv").html('<div class="lodtxt empty">无更多</div>');
-							$(".pagesdiv").hide();
+					    }else{    
+					    	alert(res.msg);
+					    	location.href='login.html';
 					    }
 					});  
 		            $(window).scroll(function () {
