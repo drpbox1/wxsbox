@@ -50,7 +50,8 @@
             		 rsa = res.data.rsa;
 					 ajax_method("m/login","get",{rsa: rsa},"",function (res) {   	
             		 if(res.code == 200){
-            		 	 sessionStorage.setItem("token", res.data['ww-token']);
+            		 	 sessionStorage.setItem("token", res.data['ww-token']); 
+            		 	 sessionStorage.setItem("user_id", res.data['user_id']); 
             		 	 location.href="index.html"; 
 						}else{
 							alert(res.msg);

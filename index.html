@@ -58,8 +58,11 @@
 		$("#selected_gerenzhongxing").click(function(){
     		location.href='gerenzhongxin.html';
 		});
+		if(!sessionStorage.getItem("user_id")){
+			location.href='login.html';
+		}
 		if(!getUrlParam('openid')){ 
-            // window.location.href = remote_root+'/api.php?c=pay&a=get_wx_infos&deviceId='+getUrlParam('deviceId');
+             window.location.href = remote_root+'/api.php?c=pay&a=get_mc_openid&uid='+sessionStorage.getItem("user_id");
         } 
 	</script>
 </body>
