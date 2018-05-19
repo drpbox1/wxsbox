@@ -53,11 +53,12 @@ img{
 }
 #iphone{
 	float: left;
-	left: 85px;
-	top: 78px;
-	height: 26px;
+	left: 10%;
+	top: 78px;  
+	line-height:30px;
+	width: 80%;
 	text-align: left;
-	border: 1px solid rgba(255, 255, 255, 1);
+	border: 1px solid rgba(187, 187, 187, 1);
 	position: absolute;
 }
 #yanzhengma{
@@ -86,21 +87,22 @@ img{
 	position: absolute;	
 }
 #verify-text{
-	left: 71px;
+	left: 10%;
 	top: 128px;
-	width: 189px;
+	width: 50%;
 	height: 26px;
 	text-align: left;
-	border: 1px solid rgba(255, 255, 255, 1);
+	border: 1px solid rgba(187, 187, 187, 1);
 	float: left;
 	position: absolute;
 }
 #password{
-	left: 67px;
+	left: 10%;
 	top: 130px;
-	height: 26px;
+	width: 80%;
+	line-height:30px;
 	text-align: left;
-	border: 1px solid rgba(255, 255, 255, 1);
+	border: 1px solid rgba(187, 187, 187, 1);
 	float: left;
 	position: absolute;
 }
@@ -117,11 +119,12 @@ img{
 	position: absolute;
 }
 #newmima{
-	left: 85px;
+	left: 10%;
 	top: 180px;
 	height: 26px;
+	width: 80%;
 	text-align: left;
-	border: 1px solid rgba(255, 255, 255, 1);
+	border: 1px solid rgba(187, 187, 187, 1);
 	float: left;
 	position: absolute;
 }
@@ -138,11 +141,12 @@ img{
 	position: absolute;
 }
 #querenmima{
-	left: 85px;
+	left: 10%;
 	top: 229px;
 	height: 26px;
+	width: 80%;
 	text-align: left;
-	border: 1px solid rgba(255, 255, 255, 1);
+	border: 1px solid rgba(187, 187, 187, 1);
 	float: left;
 	position: absolute;
 }
@@ -177,9 +181,9 @@ img{
 	position: absolute;
 }
 #denglu{
-	left: 23px;
+	left: 10%;
 	top: 230px;
-	width: 87%;
+	width: 80%;
 	height: 41px;
 	border-radius: 4px;
 	background-color: rgba(63, 81, 181, 1);
@@ -192,9 +196,9 @@ img{
 	position: absolute;
 }
 #zhc{
-	left: 23px;
+	left: 10%;
 	top: 283px;
-	width: 87%;
+	width: 80%;
 	height: 41px;
 	border-radius: 4px;
 	background-color: rgba(255, 255, 255, 1);
@@ -233,19 +237,20 @@ img{
 	float: left;
 	position: absolute;
 }
+
 #selected_shouye{
 	left: 35px;
-	top: 700px;
+	top: 550px;
 	width: 27px;
 	height: 27px;
 	opacity: 0.98;
 	background-color: transparent; 
 	float: left;
 	position: absolute;
-}
+ }
 #selected_shebei{
 	left: 50%;
-	top: 700px;
+	top: 550px;
 	width: 24px;
 	height: 24px;
 	background-color: transparent; 
@@ -254,7 +259,7 @@ img{
 }
 #selected_gerenzhongxing{
 	right: 35px;
-	top: 700px;
+	top: 550px;
 	width: 24px;
 	height: 24px;
 	opacity: 0.31;
@@ -262,3 +267,41 @@ img{
 	float: left;
 	position: absolute;
 }
+
+@media screen and (max-width: 349px){
+   #selected_shouye{ 
+		top: 450px; 
+	}
+	#selected_shebei{ 
+		top: 450px; 
+	}
+	#selected_gerenzhongxing{ 
+		top: 450px; 
+	}
+}
+
+
+@media screen and (min-width: 400px) and (max-width: 479px){
+    #selected_shouye{ 
+		top: 700px; 
+	}
+	#selected_shebei{ 
+		top: 700px; 
+	}
+	#selected_gerenzhongxing{ 
+		top: 700px; 
+	}
+}
+
+@media screen and (min-width: 480px) and (max-width: 787px){
+    #selected_shouye{ 
+		top: 990px; 
+	}
+	#selected_shebei{ 
+		top: 990px; 
+	}
+	#selected_gerenzhongxing{ 
+		top: 990px; 
+	}
+}
+ 

@@ -59,6 +59,33 @@
 		float: left;
 		position: absolute;
 	}
+	#sb_led_on{
+		right: 65px;
+		top: 95px;
+		width: 47px;
+		height: 20px;
+		border-radius: 4px;
+		color: rgba(229, 28, 35, 1);
+		font-size: 12px;
+		text-align: center;
+		font-family: Microsoft Yahei;
+		border: 1px solid rgba(136, 136, 136, 1);
+		float: left;
+		position: absolute;
+	}
+	#sb_led_off{
+		right: 65px;
+		top: 95px;
+		width: 47px;
+		height: 20px;
+		border-radius: 4px; 
+		font-size: 12px;
+		text-align: center;
+		font-family: Microsoft Yahei;
+		border: 1px solid rgba(136, 136, 136, 1);
+		float: left;
+		position: absolute;
+	}
 	#sb_dizhi{
 		left: 29px;
 		top: 40px;
@@ -72,6 +99,10 @@
 		float: left;
 		position: absolute;
 	}
+.pagesdiv{ width:98%; height:40px; text-align:center; margin:2px 1%;display:none}
+.pagesdiv .lodimg{ width:30px; height:30px; display:inline-block; margin-top:40px;}
+.pagesdiv .lodtxt{ display:inline-table; margin-top:-8px; margin-left:5px}
+.pagesdiv .empty{margin-top:40px;}
 	</style>
 </head>
 <body>
@@ -81,12 +112,12 @@
 			<img class="fanhui" src="images/btn_fanhui@3x.png">设备管理
 		</div>
 		<div id="listcontent"></div> 
-		 
-		<div>
-			<img id="selected_shouye" src="images/selected_shouye@2x.png">
-			<img id="selected_shebei" src="images/selected_shebeiguanli@2x.png">
-			<img id="selected_gerenzhongxing" src="images/selected_gerenzhongxin@2x.png">
-		</div>
+		 <div class="pagesdiv">
+			<div class="lodimg"><img src="images/loading.gif"/></div><div class="lodtxt">加载中...
+	  		<input name="redgiftNextPage" type="hidden" id="redgiftNextPage" value="1">
+			</div> 
+		</div> 
+		<input name="ledstatus" type="hidden" id="ledstatus" value="1"> 
 	</div>
 
 
@@ -106,10 +137,13 @@
     		location.href='gerenzhongxin.html';
 		});
 
-		$(function(){    
+		$(function(){     
 		     //准备data 
-		    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTIwIiwicmVnaXN0cmF0aW9uX2lkIjoiYm9ibyIsImlhdCI6MTUyNjQ4MzQ5MiwiZXhwIjoxNTI3MDg4MjkyfQ==.33103622fb3cd6540c9c6646c5a18e4a08b3f61169ee84459853163b2ae081a1";
-			    	ajax_method("m/devicelist","get",{'rows':10,'page':0},token,function (res) {  
+		    var token = sessionStorage.getItem("token");
+		    if(!isNaN(token)){ 
+				window.location.href ='login.html';
+			}else{ 
+				ajax_method("m/devicelist","get",{'rows':10,'page':1},token,function (res) {  
 					    if(res.code == 200){ 
 					        var datacount=res.data.length;
 							 for (var i=0; i<datacount; i++) {
@@ -125,8 +159,15 @@
 								 		}else{
 								 			html+='<div><input id="sb_zhuangtai_off" type="button" name="zhuangtai" value="离线"></div></div>'; 
 								 		}
-									$("#listcontent").append(html);
+									if(res.data[i]['ledstatus'] == 1){
+                          				html+='<div><a href="http://o.xcentiot.com/api.php?c=index&a=openLight&deviceid='+res.data[i]['devicenum']+'&led=off"><input id="sb_led_on" type="button" name="zhuangtai" value="灯关"></a></div></div>'; 
+							 		}else{
+							 			html+='<div><a href="http://o.xcentiot.com/api.php?c=index&a=openLight&deviceid='+res.data[i]['devicenum']+'&led=on"><input id="sb_led_off" type="button" name="zhuangtai" value="灯开"></a></div></div>'; 
+							 		}
+
+									$("#listcontent").append(html); 
 							 } 
+							  $("#redgiftNextPage").val(parseInt($("#redgiftNextPage").val())+1);
 					    }else{    
 					    	alert(res.msg);
 					    	location.href='login.html';
@@ -143,7 +184,7 @@
 							   $(".pagesdiv").html('<div class="lodtxt empty">无更多</div>');
 							   $(".pagesdiv").show();return;
 						   }else{  
-		                		ajax_method("m/replenishItem","get",{'id':device_id},token,function (res) {  
+		                		ajax_method("m/devicelist","get",{'rows':10,'page':page},token,function (res) {  
 		                			console.log(res.data[0]);
 								    if(res.data[0]){ 
 								        var datacount=res.data.length;
@@ -161,6 +202,11 @@
 										 		}else{
 										 			html+='<div><input id="sb_zhuangtai_off" type="button" name="zhuangtai" value="离线"></div></div>'; 
 										 		}
+										 		if(res.data[i]['ledstatus'] == 1){
+			                          				html+='<div><a href="http://o.xcentiot.com/api.php?c=index&a=openLight&deviceid='+res.data[i]['devicenum']+'&led=off"><input id="sb_led_on" type="button" name="zhuangtai" value="灯关"></a></div></div>'; 
+										 		}else{
+										 			html+='<div><a href="http://o.xcentiot.com/api.php?c=index&a=openLight&deviceid='+res.data[i]['devicenum']+'&led=on"><input id="sb_led_off" type="button" name="zhuangtai" value="灯开"></a></div></div>'; 
+										 		}
 											$("#listcontent").append(html);
 										 }
 										 $("#redgiftNextPage").val(parseInt($("#redgiftNextPage").val())+1);
@@ -172,7 +218,9 @@
 							}
 				        }
 				    }); 
-		      });
+				}
+			    	
+		 });
 
 	</script>
 </body>

@@ -39,9 +39,12 @@
     app.title = '商品';
 
     //准备data 
-    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTIwIiwicmVnaXN0cmF0aW9uX2lkIjoiYm9ibyIsImlhdCI6MTUyNjQ4MzQ5MiwiZXhwIjoxNTI3MDg4MjkyfQ==.33103622fb3cd6540c9c6646c5a18e4a08b3f61169ee84459853163b2ae081a1";
-
-   ajax_method("m/statorder","get",{type : 1},token,function (res) {  
+    var token = sessionStorage.getItem("token"); 
+    console.log(!isNaN(token));
+    if(!isNaN(token)){ 
+               window.location.href ='login.html';
+    }else{
+       ajax_method("m/statorder","get",{type : 1},token,function (res) {  
         if(res.code == 200){  
             // for(i  in res.data){   //variable 为属性名
             //   console.log(res.data[i])   //name age
@@ -229,7 +232,11 @@
                 }   
                 }) 
             });
-        });
+        }); 
+    }
+    
+
+    
    
 </script>
 

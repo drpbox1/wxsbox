@@ -17,13 +17,11 @@
 			<!-- <img class="fanhui" src="images/btn_fanhui@3x.png"> -->登录
 		</div>
 		<div>
-			<div class="shuru">
-				<div id="shoujihao">手机号 :</div>
-				<div><input id="iphone" type="text" name="iPhone"></div>
-			</div>
-			<div>
-				<div id="mima">密码 :</div>
-				<div><input id="password" type="password" name="password">
+			<div class="shuru"> 
+				<div><input id="iphone" type="text" name="iPhone" placeholder="输入手机号"></div>
+			</div> 
+			<div> 
+				<div><input id="password" type="password" name="password" placeholder="输入密码">
 			</div>
 		</div>
 		<div>
@@ -64,7 +62,7 @@
         }
     });
     console.log(sessionStorage.getItem("token"));
-
+    console.log(sessionStorage.getItem("user_id"));
   //   $(function () {  
 
   //    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMjAsInJlZ2lzdHJhdGlvbl9pZCI6ImJvYm8iLCJpYXQiOjE1MjU0MTAwMjcsImV4cCI6MTUyNjAxNDgyN30=.abb5192c44c4dfda3dfb33e7a138b73bf6af7ee28617bdba2b1a598a769c9ce9";

@@ -95,9 +95,9 @@
 	position: absolute;
 }
 .pagesdiv{ width:98%; height:40px; text-align:center; margin:2px 1%;display:none}
-.pagesdiv .lodimg{ width:30px; height:30px; display:inline-block; margin-top:5px;}
+.pagesdiv .lodimg{ width:30px; height:30px; display:inline-block; margin-top:40px;}
 .pagesdiv .lodtxt{ display:inline-table; margin-top:-8px; margin-left:5px}
-.pagesdiv .empty{margin-top:9px;}
+.pagesdiv .empty{margin-top:40px;}
 </style>
 </head>
 <body>
@@ -121,8 +121,11 @@
 	 });
      $(function(){   
      //准备data 
-    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTIwIiwicmVnaXN0cmF0aW9uX2lkIjoiYm9ibyIsImlhdCI6MTUyNjQ4MzQ5MiwiZXhwIjoxNTI3MDg4MjkyfQ==.33103622fb3cd6540c9c6646c5a18e4a08b3f61169ee84459853163b2ae081a1";
-	    ajax_method("m/orderlist","get",{'rows':10,'page':0},token,function (res) {  
+    	var token = sessionStorage.getItem("token");
+    	if(!isNaN(token)){ 
+			window.location.href ='login.html';
+		}else{
+			ajax_method("m/orderlist","get",{'rows':10,'page':1},token,function (res) {  
 			    if(res.code == 200){ 
 			        var datacount=res.data.length;
 					 for (var i=0; i<datacount; i++) {
@@ -143,6 +146,7 @@
 			                html+='	</tr></table></div></div>'; 
 							$("#listcontent").append(html);
 					 } 
+					  $("#redgiftNextPage").val(parseInt($("#redgiftNextPage").val())+1);
 			    }else{   
 					$(".pagesdiv").html('<div class="lodtxt empty">无更多</div>');
 					$(".pagesdiv").hide();
@@ -189,7 +193,9 @@
 						});     
 					}
 		        }
-		    }); 
+		    });  
+		}
+	    
       });
    
 </script>	

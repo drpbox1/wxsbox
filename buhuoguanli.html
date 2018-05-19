@@ -101,9 +101,9 @@
 	border:1px solid rgba(136, 136, 136, 1);
 }
 .pagesdiv{ width:98%; height:40px; text-align:center; margin:2px 1%;display:none}
-.pagesdiv .lodimg{ width:30px; height:30px; display:inline-block; margin-top:5px;}
+.pagesdiv .lodimg{ width:30px; height:30px; display:inline-block; margin-top:40px;}
 .pagesdiv .lodtxt{ display:inline-table; margin-top:-8px; margin-left:5px}
-.pagesdiv .empty{margin-top:9px;}
+.pagesdiv .empty{margin-top:40px;}
 </style>
 </head>
 <body>
@@ -133,6 +133,7 @@
 	  		<input name="redgiftNextPage" type="hidden" id="redgiftNextPage" value="1">
 			</div> 
 		  </div>  
+		  <input name="doorstatus" type="hidden" id="doorstatus" value="1">
 	</div>
 
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script> 
@@ -140,13 +141,19 @@
 <script type="text/javascript">   
      $(function(){   
      var device_id = getUrlParam('id');
+	 var doorstatus = $("#doorstatus").val(); 
+	 console.log(doorstatus);
+	 //开柜子 
      $("#devid").html(device_id);
      $(".fanhui").click(function(){
     		location.href='quehuotongji.html';
 	 });
      //准备data 
-    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTIwIiwicmVnaXN0cmF0aW9uX2lkIjoiYm9ibyIsImlhdCI6MTUyNjQ4MzQ5MiwiZXhwIjoxNTI3MDg4MjkyfQ==.33103622fb3cd6540c9c6646c5a18e4a08b3f61169ee84459853163b2ae081a1";
-	    	ajax_method("m/replenishItem","get",{'id':device_id},token,function (res) {  
+    var token = sessionStorage.getItem("token");
+    if(!isNaN(token)){ 
+			window.location.href ='login.html';
+		}else{
+			 ajax_method("m/replenishItem","get",{'id':device_id},token,function (res) {  
 			    if(res.code == 200){ 
 			        var datacount=res.data.length;
 					 for (var i=0; i<datacount; i++) {
@@ -161,43 +168,10 @@
 					 } 
 			    }else{   
 					$(".pagesdiv").html('<div class="lodtxt empty">无更多</div>');
-					$(".pagesdiv").hide();
+					$(".pagesdiv").show();return;
 			    }
 			});  
-            $(window).scroll(function () {
-		        var scrollTop = $(this).scrollTop();
-		        var scrollHeight = $(document).height();
-		        var windowHeight = $(this).height();
-		        if (scrollTop + windowHeight == scrollHeight) {
-					$(".pagesdiv").show();
-					var page=parseInt($("#redgiftNextPage").val());
-					if(!page || page==''){
-					   $(".pagesdiv").html('<div class="lodtxt empty">无更多</div>');
-					   $(".pagesdiv").show();return;
-				   }else{  
-                		ajax_method("m/replenishItem","get",{'id':device_id},token,function (res) {  
-                			console.log(res.data[0]);
-						    if(res.data[0]){ 
-						        var datacount=res.data.length;
-								 for (var i=0; i<datacount; i++) {
-									 var html='<div id="bh_shangping1"><div class="bh_tp">';
-					                 html+='<img  class="bh_tupian" src="'+res.data[i]['goods_img']+'"></div>';
-					                 html+='<div class="bh_shp">'; 
-					                 html+='<p><span>商品:'+res.data[i]['goods_name']+'</span></p>';
-					                 html+='<p><span>货道:'+res.data[i]['lane']+'</span></p>';
-					                 html+='<p><span>数量:'+res.data[i]['num']+'</span></p>';	
-					                 html+='</div>'; 
-									$("#buhuo").append(html);
-								 }
-								 $("#redgiftNextPage").val(parseInt($("#redgiftNextPage").val())+1);
-						    }else{   
-								$(".pagesdiv").html('<div class="lodtxt empty">无更多</div>');
-								$(".pagesdiv").hide();
-						    }
-						});     
-					}
-		        }
-		    });
+             
 			$('#yjbuhuo').on('click', function(){  
 			              	ajax_method("m/allstock","put",{'id':device_id},token,function (res) {  
 							    if(res.code == 200){ 
@@ -205,6 +179,8 @@
 							    } 
 							});  
 			});
+		}
+	    	
       });
    
 </script>	

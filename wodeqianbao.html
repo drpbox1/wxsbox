@@ -39,14 +39,18 @@
     		location.href='bangdinzhifubao.html';
 		});
 
-		var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTIwIiwicmVnaXN0cmF0aW9uX2lkIjoiYm9ibyIsImlhdCI6MTUyNjQ4MzQ5MiwiZXhwIjoxNTI3MDg4MjkyfQ==.33103622fb3cd6540c9c6646c5a18e4a08b3f61169ee84459853163b2ae081a1";
-
-		 $(function(){  
-            ajax_method("m/money","get","",token,function (res) {  
+		var token = sessionStorage.getItem("token");
+	
+		 $(function(){
+		 	if(!isNaN(token)){ 
+				window.location.href ='login.html';
+			}else{ 
+				ajax_method("m/money","get","",token,function (res) {  
                 if(res.code == 200){ 
                 		$("#qb_yuezhi").html(res.data.money);
                    }  
                 }) 
+			}   
         });
 	</script>
 </body>

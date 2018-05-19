@@ -3,6 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
 	<title>主页</title>
 	<link rel="stylesheet" type="text/css" href="css/common.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
@@ -58,12 +59,15 @@
 		$("#selected_gerenzhongxing").click(function(){
     		location.href='gerenzhongxin.html';
 		});
-		if(!sessionStorage.getItem("user_id")){
-			location.href='login.html';
+		$user_id = sessionStorage.getItem("user_id");  
+		if($user_id == null){ 
+			window.location.href ='login.html';
+		}else{
+			if(!getUrlParam('openid')){ 
+              //window.location.href = remote_root+'/api.php?c=pay&a=get_mc_openid&uid='+sessionStorage.getItem("user_id");
+        	} 
 		}
-		if(!getUrlParam('openid')){ 
-             window.location.href = remote_root+'/api.php?c=pay&a=get_mc_openid&uid='+sessionStorage.getItem("user_id");
-        } 
+	
 	</script>
 </body>
 </html>

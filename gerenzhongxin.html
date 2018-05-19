@@ -66,15 +66,18 @@
 		$("#sz_jiantou").click(function(){
     		location.href='shezhi.html';
 		});
-		var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTIwIiwicmVnaXN0cmF0aW9uX2lkIjoiYm9ibyIsImlhdCI6MTUyNjQ4MzQ5MiwiZXhwIjoxNTI3MDg4MjkyfQ==.33103622fb3cd6540c9c6646c5a18e4a08b3f61169ee84459853163b2ae081a1";
-
+		var token = sessionStorage.getItem("token"); 
 		 $(function(){  
-            ajax_method("m/getUserInfo","get","",token,function (res) {
-                if(res.code == 200){  
-                		$("#gr_touxiang").attr("src","http://120.77.245.43:8095"+res.data.head_img);
-                		$("#gr_nicheng").html(res.data.nickname);
-                   }  
-                }) 
+            if(!isNaN(token)){ 
+			window.location.href ='login.html';
+			}else{
+				ajax_method("m/getUserInfo","get","",token,function (res) {
+	                if(res.code == 200){  
+	                		$("#gr_touxiang").attr("src","http://120.77.245.43:8095"+res.data.head_img);
+	                		$("#gr_nicheng").html(res.data.nickname);
+	                   }  
+	                })  
+			}
         });
 	</script>
 </body>

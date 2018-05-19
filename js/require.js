@@ -4,7 +4,7 @@
 // } 
 // var url = 'http://sharebook.wenweikeji.com/admin/';
 var url = 'http://120.77.245.43:8084/'; 
-var remote_root = "http://120.77.245.43:8083";
+var remote_root = "http://o.xcentiot.com";
 setTime = function (data) {
     for(var i in data){
         for(var j in data[i]){

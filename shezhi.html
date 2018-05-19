@@ -133,8 +133,13 @@
 		$("#fankui").click(function(){
     		location.href='yijianfankui.html';
 		});
-		$("#tuichu").click(function(){
-			 var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMjAsInJlZ2lzdHJhdGlvbl9pZCI6ImJvYm8iLCJpYXQiOjE1MjU0MTAwMjcsImV4cCI6MTUyNjAxNDgyN30=.abb5192c44c4dfda3dfb33e7a138b73bf6af7ee28617bdba2b1a598a769c9ce9";
+		var token = sessionStorage.getItem("token");
+
+		if(!isNaN(token)){ 
+			window.location.href ='login.html';
+		} 
+
+		$("#tuichu").click(function(){ 
 				ajax_method("m/logout","get","",token,function (res) {
 			        if(res.code == 200){ 
 				        window.location.href="login.html";
@@ -146,15 +151,14 @@
 
 		$(".choose-label").click(function(){ 
 			 var is_push = $("#male").val();  
-			 console.log(is_push);
-			 var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMjAsInJlZ2lzdHJhdGlvbl9pZCI6ImJvYm8iLCJpYXQiOjE1MjU0MTAwMjcsImV4cCI6MTUyNjAxNDgyN30=.abb5192c44c4dfda3dfb33e7a138b73bf6af7ee28617bdba2b1a598a769c9ce9";
-				ajax_method("m/push","put",{"status": is_push},token,function (res) {
-			        if(res.code == 200){  
-							$("#male").val(0);
-					}else{
-						alert(res.msg);
-						}
-				    });
+			 console.log(is_push); 
+			 ajax_method("m/push","put",{"status": is_push},token,function (res) {
+		        if(res.code == 200){  
+						$("#male").val(0);
+				}else{
+					alert(res.msg);
+					}
+			    });
 		});
 
 
