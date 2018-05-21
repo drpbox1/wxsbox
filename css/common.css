@@ -240,7 +240,7 @@ img{
 
 #selected_shouye{
 	left: 35px;
-	top: 550px;
+	top: 540px;
 	width: 27px;
 	height: 27px;
 	opacity: 0.98;
@@ -250,7 +250,7 @@ img{
  }
 #selected_shebei{
 	left: 50%;
-	top: 550px;
+	top: 540px;
 	width: 24px;
 	height: 24px;
 	background-color: transparent; 
@@ -259,7 +259,7 @@ img{
 }
 #selected_gerenzhongxing{
 	right: 35px;
-	top: 550px;
+	top: 540px;
 	width: 24px;
 	height: 24px;
 	opacity: 0.31;
