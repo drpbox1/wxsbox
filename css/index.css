@@ -15,8 +15,8 @@
 .circle{
 	left: 33%;
 	top: 10%;
-	width: 40%;
-	height: 149px;
+	width: 36%;
+	height: 146px;
 	line-height: 20px;	
 	border-radius: 100px;
 	background-color:#FFFFF7;
@@ -33,7 +33,7 @@
 }
 #lgwenzi{
 	left: 34px;
-	top: 48px;
+	top: 40px;
 	width: 81px;
 	height: 29px;
 	line-height: 29px;
@@ -47,7 +47,7 @@
 #lgpy{
 	left: 41px;
 	top: 77px;
-	width: 65px;
+	width: 70px;
 	height: 23px;
 	line-height: 17px;
 	color: rgba(75, 123, 249, 1);

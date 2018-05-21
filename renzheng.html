@@ -6,6 +6,36 @@
 	<title>认证信息</title>
 	<link rel="stylesheet" type="text/css" href="css/common.css">
 	<style type="text/css">
+	#id_card{
+	float: left;
+	left: 16%;
+	top: 78px;  
+	line-height:30px;
+	width: 80%;
+	text-align: left;
+	border: 1px solid rgba(187, 187, 187, 1);
+	position: absolute;
+}
+#verify_text{
+	left: 16%;
+	top: 128px;
+	width: 80%;
+	height: 26px;
+	text-align: left;
+	border: 1px solid rgba(187, 187, 187, 1);
+	float: left;
+	position: absolute;
+}
+#xukezheng{
+	left: 19%;
+	top: 180px;
+	height: 26px;
+	width: 77%;
+	text-align: left;
+	border: 1px solid rgba(187, 187, 187, 1);
+	float: left;
+	position: absolute;
+}
 #renzheng{
 	left: 24px;
 	top: 350px;
@@ -21,6 +51,16 @@
 	float: left;
 	position: absolute;
 }
+#rz_iphone{
+	left: 16%;
+	top: 229px;
+	height: 26px;
+	width: 80%;
+	text-align: left;
+	border: 1px solid rgba(187, 187, 187, 1);
+	float: left;
+	position: absolute;
+}
 #tradelicenseimg{
 	left: 16px;
 	top: 270px;
@@ -33,6 +73,21 @@
 	border: 1px solid rgba(255, 255, 255, 1);
 	font-family: Arial;
 	float: left;
+	position: absolute;
+}
+#tp_shangchuan{
+	left: 130px;
+	top: 270px;
+	width: 65%;
+	height: 24px;
+	opacity: 0.67;
+	border-radius: 4px;
+	background-color: rgba(187, 187, 187, 1);
+	color: rgba(255, 255, 255, 1);
+	font-size: 14px;
+	text-align: center;
+	font-family: Microsoft Yahei;
+	border: 1px solid rgba(187, 187, 187, 1);
 	position: absolute;
 }
 #trade_license_img{
@@ -56,27 +111,59 @@
 			<div>
 			<div>
 				<div id="shoujihao">身份证:</div>
-				<div><input id="iphone" type="text" name="iPhone"></div>
+				<div><input id="id_card" type="text" name="id_card"></div>
 			</div>
 			<div>
 				<div id="mima">姓名:</div>
-				<div><input id="verify-text" type="text" name="">
+				<div><input id="verify_text" type="text" name="">
 			</div>
 			<div>
 				<div id="new">许可证号:</div>
-				<div><input id="newmima" type="text" name="newmima"></div>
+				<div><input id="xukezheng" type="text" name="xukezheng"></div>
 			</div>
 			<div>
 				<div id="queren">电话:</div>
-				<div><input id="querenmima" type="password" name="querenmima"></div>
+				<div><input id="rz_iphone" type="text" name="rz_iphone"></div>
 			</div>
 			<div>
 				<div id="tradelicenseimg">上传许可证照片:</div>
-				<div><input id="trade_license_img" type="password" name="trade_license_img"></div>
+				<input id="tp_shangchuan" type="file" name="tp_shangchuan" value="上传照片"></div>
 			</div>
 		<div>
 			<input id="renzheng" type="submit" name="wancheng" value="认证">
 		</div>
 	</div>
+
+	<!--请在下方写此页面业务相关的脚本-->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/require.js"></script>
+	<script>
+	$(".fanhui").click(function(){
+    		location.href='login.html';
+	 });
+	$("#renzheng").click(function(){
+		var id_card = $("#rz_id").val();
+		var realname = $("#verify_text").val();
+		var trade_license = $("#xukezheng").val();
+		var certify_phone = $("#rz_iphone").val();
+		var trade_license_img = $("#tp_shangchuan").val();
+		var token = sessionStorage.getItem("token");
+		if(!isNaN(token)){ 
+				window.location.href ='login.html';
+			}else{
+				if(id_card.length*realname.length*trade_license.length*certify_phone.length*trade_license_img.length===0){
+					alert("您还没有输入");
+				}else{
+					ajax_method("m/certify","post",{id_card: id_card,trade_license:trade_license,trade_license_img: trade_license_img,certify_phone:certify_phone,realname:realname},token,function (res) {
+				           			if(res.code == 200){ 
+					            		 alert(res.data);
+									}else{
+										alert(res.msg);
+									}
+					            });
+				}
+
+			}
+	});
 </body>
 </html>
