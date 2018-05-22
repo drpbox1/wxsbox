@@ -76,7 +76,7 @@ var ajax_method = function (action, method, data,token,fnSuccess) {
     $.ajax({
         url: url + action, 
         type: method,
-        data: data, 
+        data: data,  
         beforeSend: function (XMLHttpRequest) {  
                 XMLHttpRequest.setRequestHeader("ww-token", token);  
         },  

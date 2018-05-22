@@ -136,8 +136,7 @@
 				<div><input id="rz_iphone" type="text" name="rz_iphone" placeholder="电话"></div>
 			</div>
 			<div>
-				<div><input id="tp_shangchuan" type="file" name="tp_shangchuan" value="上传许可证照片"></div>
-				
+				<div><input id="tp_shangchuan" type="file" name="tp_shangchuan" value="上传许可证照片" multiple="multiple"></div> 
 			</div>
 		<div>
 			<input id="renzheng" type="submit" name="wancheng" value="认证">
@@ -153,36 +152,49 @@
 		 });
 		$("#renzheng").click(function(){
 			var formData = new FormData();
-			formData.append('file', $('#tp_shangchuan')[0].files[0]);
-			// console.log($('#tp_shangchuan')[0].files[0]);return;
-			// $.ajax({ url: '/upload', type: 'POST', cache: false, data: formData, processData: false, contentType: false }).done(function(res) { }).fail(function(res) {});
-			var id_card = $("#rz_id").val();
+			formData.append('image[]', $('#tp_shangchuan')[0].files[0]);
+		 	var id_card = $("#id_card").val();
 			var realname = $("#verify_text").val();
 			var trade_license = $("#xukezheng").val();
 			var certify_phone = $("#rz_iphone").val();
 			var trade_license_img = $("#tp_shangchuan").val();
+			if(id_card.length*realname.length*trade_license.length*certify_phone.length*trade_license_img.length===0){
+				 alert("您还没有输入");
+			}			
 			var token = sessionStorage.getItem("token");
+
 			if(!isNaN(token)){ 
 					window.location.href ='login.html';
 				}else{
-						ajax_method("m/setCertifyImage","post",formData,"",function (res) {
-							if(res.code == 200){ 
-								var path=res.data[trade_license_img];
-								if(id_card.length*realname.length*trade_license.length*certify_phone.length*trade_license_img.length===0){
-									alert("您还没有输入");
-								}else{
-									ajax_method("m/certify","post",{id_card: id_card,trade_license:trade_license,trade_license_img: path,certify_phone:certify_phone,realname:realname},token,function (res) {
+					$.ajax({
+				        url: url + 'm/setCertifyImage', 
+				        type: "post",
+				        data: formData, 
+				        processData: false,
+				        contentType: false,
+				        beforeSend: function (XMLHttpRequest) {  
+				                XMLHttpRequest.setRequestHeader("ww-token", token);  
+				        },  
+				        success: function (res) {  
+									if(res.code == 200){ 
+										var path=res.data['trade_license_img'];
+										ajax_method("m/certify","post",{id_card: id_card,trade_license:trade_license,trade_license_img: path,certify_phone:certify_phone,realname:realname},token,function (res) {
 								           			if(res.code == 200){ 
-									            		 alert(res.data);
+									            		 alert('上传成功');
 													}else{
-														alert(res.msg);
-													}
-									            });
-								}
-							}else{
-								alert(res.msg);
-							}
-						});
+														 alert(res.msg);
+													} 
+							            });  
+											
+									}else{
+										alert(res.msg);
+									}
+				        },
+				        error: function (err) {
+				            alert(JSON.stringify(err));
+				        }
+				      });
+				 
 				}
 		});
 	</script>
