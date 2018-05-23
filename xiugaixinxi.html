@@ -23,7 +23,7 @@
 				var phone=res.data['phone'];
 				var sex=res.data['sex'];
 				$('#xg_nicheng').val(nickname);
-				$("#xg_touxiang").attr('src',head_img); 
+				$("#xg_touxiang").attr('src',url+head_img); 
 				$("#xg_xingbie option:selected").text(sex);
 				if (sex==="男") {
 					$("#xg_xingbie").find("option[text='男']").attr("selected",true);

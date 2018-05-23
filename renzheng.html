@@ -5,8 +5,45 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
 	<title>认证信息</title>
 	<link rel="stylesheet" type="text/css" href="css/common.css">
-	<style type="text/css">
-	#id_card{
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/require.js"></script>
+	<script type="text/javascript">
+		var token = sessionStorage.getItem("token");
+		$.ajax({
+			url: url + 'm/certify', 
+			type: "get",
+			processData: false,
+			contentType: false,
+			beforeSend: function (XMLHttpRequest) {  
+				XMLHttpRequest.setRequestHeader("ww-token", token);  
+			},  
+			success: function (res) {
+				var id_card=res.data['id_card'];
+				var trade_license=res.data['trade_license'];
+				var trade_license_img=res.data['trade_license_img'];
+				var realname=res.data['realname'];
+				var certify_phone=res.data['certify_phone'];
+				var certify_status=res.data['certify_status'];
+				$('#id_card').val(id_card);
+				$('#verify_text').val(realname);
+				$('#xukezheng').val(trade_license);
+				$('#rz_iphone').val(certify_phone);
+				$('#rz_tp').attr('src',url+trade_license_img);
+				if (certify_status==1) {
+					alert("认证中");
+				}else if (certify_status==2) {
+					alert("认证失败,请修改");
+				}else{
+					$('#rz').css('display','none'); 
+				}
+			},
+			error: function (err) {
+				alert(JSON.stringify(err));
+				}
+		});
+	</script>
+<style type="text/css">
+#id_card{
 	float: left;
 	left: 10%;
 	top: 78px; 
@@ -39,7 +76,7 @@
 }
 #renzheng{
 	left: 24px;
-	top: 350px;
+	top: 410px;
 	width: 87%;
 	height: 41px;
 	border-radius: 4px;
@@ -77,16 +114,20 @@
 	position: absolute;
 }
 #tp_shangchuan{
-	left: 10%;
+	left: 24%;
 	top: 270px;
-	width: 60%;
-	height: 24px;
+	width: 200px;
+	height: 120px;
 	opacity: 0.67;
 	border-radius: 4px;
 	background-color: rgba(187, 187, 187, 1);
 	color: rgba(255, 255, 255, 1);
 	font-size: 14px;
 	text-align: center;
+	position: absolute;
+    opacity:0;
+    filter:alpha(opacity=0);
+    position: absolute;
 	font-family: Microsoft Yahei;
 	border: 1px solid rgba(187, 187, 187, 1);
 	position: absolute;
@@ -113,6 +154,18 @@
 	border: 1px solid ;
 	position: absolute;
 }
+#rz_tp{
+	left: 24%;
+	top: 270px;
+	width: 200px;
+	height: 120px;
+	opacity: 0.67;
+	border-radius: 4px;
+	text-align: center;
+	font-family: Microsoft Yahei;
+	border: 1px solid rgba(187, 187, 187, 1);
+	position: absolute;
+}
 </style>
 </head>
 <body>
@@ -124,21 +177,22 @@
 		<div>
 			<div>
 			<div>
-				<input id="id_card" type="text" name="id_card" placeholder="身份证">
+				<input id="id_card" type="text" name="id_card" value="" placeholder="身份证">
 			</div>
 			<div>
-				<input id="verify_text" type="text" name="" placeholder="姓名">
+				<input id="verify_text" type="text" name="" value="" placeholder="姓名">
 			</div>
 			<div>
-				<input id="xukezheng" type="text" name="xukezheng" placeholder="许可证">
+				<input id="xukezheng" type="text" name="xukezheng" value="" placeholder="许可证">
 			</div>
 			<div>
-				<input id="rz_iphone" type="text" name="rz_iphone" placeholder="电话">
+				<input id="rz_iphone" type="text" name="rz_iphone" value="" placeholder="电话">
 			</div>
 			<div>
-				<input id="tp_shangchuan" type="file" name="tp_shangchuan" value="上传许可证照片" multiple="multiple"> 
+				<img id="rz_tp" src="">
+				<input id="tp_shangchuan" type="file" name="tp_shangchuan" value="" value="上传许可证照片" multiple="multiple"> 
 			</div>
-		<div>
+		<div id="rz">
 			<input id="renzheng" type="submit" name="wancheng" value="认证">
 		</div>
 	</div>
@@ -148,7 +202,7 @@
 	<script type="text/javascript" src="js/require.js"></script>
 	<script> 
 		$(".fanhui").click(function(){
-	    		location.href='login.html';
+	    		location.href='gerenzhongxin.html';
 		 });
 		$("#renzheng").click(function(){
 			var formData = new FormData();
