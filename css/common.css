@@ -252,7 +252,7 @@ img{
 
 #selected_shouye{
 	left: 35px;
-	top: 545px;
+	top: 580px;
 	width: 27px;
 	height: 27px;
 	opacity: 0.98;
@@ -262,7 +262,7 @@ img{
  }
 #selected_shebei{
 	left: 50%;
-	top: 545px;
+	top: 580px;
 	width: 24px;
 	height: 24px;
 	background-color: transparent; 
@@ -271,7 +271,7 @@ img{
 }
 #selected_gerenzhongxing{
 	right: 35px;
-	top: 545px;
+	top: 580px;
 	width: 24px;
 	height: 24px;
 	opacity: 0.31;
@@ -282,26 +282,26 @@ img{
 
 @media screen and (max-width: 349px){
    #selected_shouye{ 
-		top: 485px; 
+		top: 525px; 
 	}
 	#selected_shebei{ 
-		top: 485px; 
+		top: 525px; 
 	}
 	#selected_gerenzhongxing{ 
-		top: 485px; 
+		top: 525px; 
 	}
 }
 
 
 @media screen and (min-width: 400px) and (max-width: 479px){
     #selected_shouye{ 
-		top: 700px; 
+		top: 680px; 
 	}
 	#selected_shebei{ 
-		top: 700px; 
+		top: 680px; 
 	}
 	#selected_gerenzhongxing{ 
-		top: 700px; 
+		top: 680px; 
 	}
 }
 

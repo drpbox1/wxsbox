@@ -15,7 +15,7 @@
 .circle{
 	left: 33%;
 	top: 30%;
-	width: 36%;
+	width: 38%;
 	height: 146px;
 	line-height: 20px;	
 	border-radius: 100px;
@@ -33,7 +33,7 @@
 	height: 243px;
 }
 #lgwenzi{
-	left: 34px;
+	left: 32px;
 	top: 40px;
 	width: 81px;
 	height: 29px;
@@ -46,7 +46,7 @@
 	position: absolute;
 }
 #lgpy{
-	left: 41px;
+	left: 38px;
 	top: 77px;
 	width: 70px;
 	height: 23px;
@@ -60,7 +60,7 @@
 }
 #dingdan{
 	left: 40%;
-	top: 272px;
+	top: 280px;
 	width: 90px;
 	height: 90px;
 	line-height: 20px;
@@ -73,7 +73,7 @@
 }
 #dingdan_text{
 	left: 45%;
-	top: 366px;
+	top: 375px;
 	width: 53px;
 	height: 23px;
 	line-height: 19px;
@@ -87,7 +87,7 @@
 }
 #yingxiao{
 	left: 15%;
-	top: 360px;
+	top: 380px;
 	width: 70px;
 	height: 70px;
 	line-height: 20px;
@@ -100,7 +100,7 @@
 }
 #yingxiao_text{
 	left: 17%;
-	top: 435px;
+	top: 452px;
 	width: 57px;
 	height: 23px;
 	line-height: 20px;
@@ -114,7 +114,7 @@
 }
 #quehuo_text{
 	right: 14%;
-	top: 435px;
+	top: 452px;
 	width: 57px;
 	height: 23px;
 	line-height: 20px;
@@ -128,7 +128,7 @@
 }
 #quehuo{
 	right: 12%;
-	top: 360px;
+	top: 380px;
 	width: 70px;
 	height: 70px;
 	line-height: 20px;
@@ -141,29 +141,59 @@
 }
 @media screen and (max-width: 349px){
    	.circle{ 
-		width: 48%; 
-		left:26%;
+		width: 46%; 
+		left:28%;
 	}
 	#dingdan{ 
-		left:35%;
-		top:220px;
+		left:36%;
+		top:293px;
 	}
 	#dingdan_text{ 
-		left: 40%;
-		top:320px;
+		left: 42%;
+		top:388px;
 	}
 	#yingxiao{ 
 		left:12%;
-		top:300px;
+		top:385px;
 	}
 	#yingxiao_text{ 
 		left: 14%;
-		top:380px;
+		top:458px;
 	}
 	#quehuo{
-		top:300px;
+		top:385px;
 	}
 	#quehuo_text{
-		top:380px;
+		top:458px;
+	}
+}
+@media screen and (min-width: 400px) and (max-width: 479px){
+   	.circle{ 
+		width: 36%; 
+		left:32%;
+	}
+	#dingdan{ 
+		left:40%;
+		top:293px;
+	}
+	#dingdan_text{ 
+		left: 45%;
+		top:388px;
+	}
+	#yingxiao{ 
+		left:12%;
+		top:385px;
+	}
+	#yingxiao_text{ 
+		left: 14%;
+		top:458px;
+	}
+	#quehuo{
+		top:385px;
+		right: 11%;
+	}
+	#quehuo_text{
+		top:458px;
+		right: 13%;
 	}
 }
