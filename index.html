@@ -67,6 +67,20 @@
               //window.location.href = remote_root+'/api.php?c=pay&a=get_mc_openid&uid='+sessionStorage.getItem("user_id");
         	} 
 		}
+		var token = sessionStorage.getItem("token"); 
+		 $(function(){  
+            if(!isNaN(token)){ 
+			window.location.href ='login.html';
+			}else{
+				ajax_method("m/certify","get","",token,function (res) {
+	                if(res.code == 200){  
+	                		 if(res.data['certify_status'] != 3){
+	                		 	window.location.href ='renzheng.html';
+	                		 }
+	                   }  
+	                })  
+			}
+        }); 
 	
 	</script>
 </body>

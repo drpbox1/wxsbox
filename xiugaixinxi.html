@@ -7,37 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/common.css">
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="js/require.js"></script>
-	<script type="text/javascript">
-		var token = sessionStorage.getItem("token");
-		$.ajax({
-			url: url + 'm/getUserInfo', 
-			type: "get",
-			processData: false,
-			contentType: false,
-			beforeSend: function (XMLHttpRequest) {  
-				XMLHttpRequest.setRequestHeader("ww-token", token);  
-			},  
-			success: function (res) {
-				var head_img=res.data['head_img'];
-				var nickname=res.data['nickname'];
-				var phone=res.data['phone'];
-				var sex=res.data['sex'];
-				$('#xg_nicheng').val(nickname);
-				$("#xg_touxiang").attr('src',url+head_img); 
-				$("#xg_xingbie option:selected").text(sex);
-				if (sex==="男") {
-					$("#xg_xingbie").find("option[text='男']").attr("selected",true);
-				}else if (sex==="女") {
-					$("#xg_xingbie").find("option[text='女']").attr("selected",true);
-				}else{
-					$("#xg_xingbie").find("option[text='保密']").attr("selected",true);
-				}
-			},
-			error: function (err) {
-				alert(JSON.stringify(err));
-				}
-		});
-	</script>
+	
 <style type="text/css">
 #touxiang{
 	left: 30%;
@@ -79,10 +49,17 @@
 	position: absolute;
 }
 #shangchuan{
-	left: 42%;
-	top: 365px;
-	width: 70px;
-	height: 23px;
+	left: 24px;
+	top: 410px;
+	width: 87%;
+	height: 41px;
+	border-radius: 4px;
+	background-color: rgba(75, 123, 249, 1);
+	color: rgba(255, 255, 255, 1);
+	font-size: 14px;
+	text-align: center;
+	font-family: Microsoft Yahei;
+	border: 1px solid rgba(63, 81, 181, 1);
 	float: left;
 	position: absolute;
 }
@@ -139,16 +116,46 @@
 		<div>
 			
 				<select id="xg_xingbie">
+					<option value="0">保密</option>
 				  	<option value ="1">男</option>
-				  	<option value ="2">女</option>
-				  	<option value="0">保密</option>
+				  	<option value ="2">女</option> 
 				</select>
 		</div>
 		<div>
 			<input id="shangchuan" type="button" value="上传">
 		</div>
 	</div>
-	
+	<script type="text/javascript">
+		var token = sessionStorage.getItem("token");
+		if(!isNaN(token)){ 
+			window.location.href ='login.html';
+	    }
+		$.ajax({
+			url: url + 'm/getUserInfo', 
+			type: "get", 
+			beforeSend: function (XMLHttpRequest) {  
+				XMLHttpRequest.setRequestHeader("ww-token", token);  
+			},  
+			success: function (res) {
+				var head_img=res.data['head_img'];
+				var nickname=res.data['nickname'];
+				var phone=res.data['phone'];
+				var sex=res.data['sex'];
+				$('#xg_nicheng').val(nickname);
+				$("#xg_touxiang").attr('src',url+head_img);   
+				if (sex==="男") { 
+					document.getElementById("xg_xingbie").options[1].selected = true;
+				}else if (sex==="女") { 
+					document.getElementById("xg_xingbie").options[2].selected = true;
+				}else{ 
+				     document.getElementById("xg_xingbie").options[0].selected = true;
+				}
+			},
+			error: function (err) {
+				alert(JSON.stringify(err));
+				}
+		}); 
+	</script>
 
 	<script type="text/javascript">  
 		$(".fanhui").click(function(){

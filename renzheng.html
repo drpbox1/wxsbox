@@ -4,44 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
 	<title>认证信息</title>
-	<link rel="stylesheet" type="text/css" href="css/common.css">
-	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="js/require.js"></script>
-	<script type="text/javascript">
-		var token = sessionStorage.getItem("token");
-		$.ajax({
-			url: url + 'm/certify', 
-			type: "get",
-			processData: false,
-			contentType: false,
-			beforeSend: function (XMLHttpRequest) {  
-				XMLHttpRequest.setRequestHeader("ww-token", token);  
-			},  
-			success: function (res) {
-				var id_card=res.data['id_card'];
-				var trade_license=res.data['trade_license'];
-				var trade_license_img=res.data['trade_license_img'];
-				var realname=res.data['realname'];
-				var certify_phone=res.data['certify_phone'];
-				var certify_status=res.data['certify_status'];
-				$('#id_card').val(id_card);
-				$('#verify_text').val(realname);
-				$('#xukezheng').val(trade_license);
-				$('#rz_iphone').val(certify_phone);
-				$('#rz_tp').attr('src',url+trade_license_img);
-				if (certify_status==1) {
-					alert("认证中");
-				}else if (certify_status==2) {
-					alert("认证失败,请修改");
-				}else{
-					$('#rz').css('display','none'); 
-				}
-			},
-			error: function (err) {
-				alert(JSON.stringify(err));
-				}
-		});
-	</script>
+	<link rel="stylesheet" type="text/css" href="css/common.css"> 
 <style type="text/css">
 #id_card{
 	float: left;
@@ -200,6 +163,41 @@
 	<!--请在下方写此页面业务相关的脚本-->
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="js/require.js"></script>
+	<script type="text/javascript">
+		var token = sessionStorage.getItem("token");
+		$.ajax({
+			url: url + 'm/certify', 
+			type: "get",
+			processData: false,
+			contentType: false,
+			beforeSend: function (XMLHttpRequest) {  
+				XMLHttpRequest.setRequestHeader("ww-token", token);  
+			},  
+			success: function (res) {
+				var id_card=res.data['id_card'];
+				var trade_license=res.data['trade_license'];
+				var trade_license_img=res.data['trade_license_img'];
+				var realname=res.data['realname'];
+				var certify_phone=res.data['certify_phone'];
+				var certify_status=res.data['certify_status'];
+				$('#id_card').val(id_card);
+				$('#verify_text').val(realname);
+				$('#xukezheng').val(trade_license);
+				$('#rz_iphone').val(certify_phone);
+				$('#rz_tp').attr('src',url+trade_license_img);
+				if (certify_status==1) {
+					alert("认证中");
+				}else if (certify_status==2) {
+					alert("认证失败,请修改");
+				}else{
+					$('#rz').css('display','none'); 
+				}
+			},
+			error: function (err) {
+				alert(JSON.stringify(err));
+				}
+		});
+	</script>
 	<script> 
 		$(".fanhui").click(function(){
 	    		location.href='gerenzhongxin.html';

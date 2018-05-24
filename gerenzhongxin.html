@@ -80,7 +80,7 @@
 			}else{
 				ajax_method("m/getUserInfo","get","",token,function (res) {
 	                if(res.code == 200){  
-	                		$("#gr_touxiang").attr("src","http://120.77.245.43:8095"+res.data.head_img);
+	                		$("#gr_touxiang").attr("src",url+res.data.head_img);
 	                		$("#gr_nicheng").html(res.data.nickname);
 	                   }  
 	                })  
