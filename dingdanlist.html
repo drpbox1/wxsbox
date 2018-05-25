@@ -33,7 +33,7 @@
 	position: absolute;
 }
 .dd_time{
-	left: 229px;
+	left: 232px;
 	top: 17px;
 	width: 127px;
 	height: 23px;
@@ -62,12 +62,11 @@
 	font-family: Arial;
 }
 .dd_weixin{
-	right: : 50px;
 	width: 16px;
 	height: 16px;
 	float: left;
 	position: absolute;
-	left: 252px;
+	left: 260px;
 	top: 6px;
 }
 .dd_wx{
@@ -93,6 +92,55 @@
 	border: 1px solid rgba(63, 81, 181, 1);
 	float: left;
 	position: absolute;
+}
+#dd_zhifu{
+	left: 280px; 
+	top: -6px; 
+	float: left; 
+	position: absolute; 
+	width: 49px; 
+	height: 0px;
+}
+#dd_jine{
+	left: 270px;
+	top: 65px; 
+	float: left; 
+	position: absolute; 
+	width: 62px;	
+}
+@media screen and (max-width: 349px){
+   	.dd_time{ 
+		width: 46%; 
+		left:50%;
+	}
+	.dd_weixin{
+		left: 194px;
+	}
+	#dd_zhifu{
+		left: 217px; 
+		top: -6px; 
+	}
+	#dd_jine{
+		left: 208px;
+		top: 63px; 
+	}
+}
+@media screen and (min-width: 400px) and (max-width: 479px){
+   	.dd_time{ 
+		width: 40%; 
+		left:60%;
+	}
+	.dd_weixin{
+		left: 290px;
+	}
+	#dd_zhifu{
+		left: 315px; 
+		top: -6px; 
+	}
+	#dd_jine{
+		left: 305px;
+		top: 63px; 
+	}
 }
 .pagesdiv{ width:98%; height:40px; text-align:center; margin:2px 1%;display:none}
 .pagesdiv .lodimg{ width:30px; height:30px; display:inline-block; margin-top:40px;}
@@ -137,12 +185,12 @@
 			                 html+='<td width="102">购买产品:</td>';
 			                 html+='<td width="125">'+res.data[i]['goods']+'</td>';
 			                 html+='<td width="128"><img class="dd_weixin" src="images/share_weixin@2x.png">';
-			                 html+='<p style="left: 274px; top: -6px; float: left; position: absolute; width: 49px; height: 0px;">'+res.data[i]['pay_type']+'支付<p>';
+			                 html+='<p id="dd_zhifu">'+res.data[i]['pay_type']+'支付<p>';
 			                 html+='</td></tr><tr><td>订单号:</td>';  
 							 html+='<td>'+res.data[i]['order_sn']+'</td>'; 
 							 html+='</tr><tr><td>设备号:</td>';
 							 html+='<td>'+res.data[i]['device_id']+'</td>';  
-			                 html+='<td><p style="left: 266px; top: 68px; float: left; position: absolute; width: 62px;">实付:¥'+res.data[i]['money']+'</p></td>';
+			                 html+='<td><p id="dd_jine">实付:¥'+res.data[i]['money']+'</p></td>';
 			                html+='	</tr></table></div></div>'; 
 							$("#listcontent").append(html);
 					 } 
