@@ -141,13 +141,16 @@
 
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script> 
 <script type="text/javascript" src="js/require.js"></script>
-<script type="text/javascript">   
+<script type="text/javascript">
      $(function(){   
      var device_id = getUrlParam('id');
 	 var doorstatus = $("#doorstatus").val(); 
 	 console.log(doorstatus);
 	 //开柜子 
      $("#devid").html(device_id);
+     $("#yjbuhuo").click(function(){
+     	$(this).css("background","green");
+     });
      $(".fanhui").click(function(){
     		location.href='quehuotongji.html';
 	 });
