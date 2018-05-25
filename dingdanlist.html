@@ -224,12 +224,12 @@
 						                 html+='<td width="102">购买产品:</td>';
 						                 html+='<td width="125">'+res.data[i]['goods']+'</td>';
 						                 html+='<td width="128"><img class="dd_weixin" src="images/share_weixin@2x.png">';
-						                 html+='<p style="left: 274px; top: -6px; float: left; position: absolute; width: 49px; height: 0px;">'+res.data[i]['pay_type']+'支付<p>';
+						                 html+='<p id="dd_zhifu">'+res.data[i]['pay_type']+'支付<p>';
 						                 html+='</td></tr><tr><td>订单号:</td>';  
 										 html+='<td>'+res.data[i]['order_sn']+'</td>'; 
 										 html+='</tr><tr><td>设备号:</td>';
 										 html+='<td>'+res.data[i]['device_id']+'</td>';  
-						                 html+='<td><p style="left: 258px; top: 68px; float: left; position: absolute; width: 62px;">实付:¥'+res.data[i]['money']+'</p></td>';
+						                 html+='<td><p id="dd_jine">实付:¥'+res.data[i]['money']+'</p></td>';
 						                html+='	</tr></table></div></div>'; 
 										$("#listcontent").append(html);
 								 }

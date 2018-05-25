@@ -223,13 +223,12 @@ img{
 	position: absolute;
 }
 #wangjimima{
-	left: 180px;
+	left: 163px;
 	top: 190px;
 	height: 23px;
 	line-height: 16px;
 	color: rgba(63, 81, 181, 1);
 	font-size: 11px;
-	text-align: center;
 	font-family: Arial;
 	float: left;
 	position: absolute;
@@ -291,12 +290,21 @@ img{
 		top: 525px; 
 	}
 	#denglu{
-		left: 12%;
+		left: 11%;
 		width: 77%;
 	}
 	#zhc{
-		left: 12%;
+		left: 11%;
 		width: 77%;
+	}
+	#iphone{
+		left:8%;
+	}
+	#password{
+		left: 8%;
+	}
+	#wangjimima{
+		left: 134px;
 	}
 }
 @media screen and (min-width: 400px) and (max-width: 479px){
@@ -323,6 +331,9 @@ img{
 	#password{
 		left: 9%;
 	}
+	#wangjimima{
+		left: 182px;
+	}
 }
 
 @media screen and (min-width: 480px) and (max-width: 787px){
@@ -342,6 +353,9 @@ img{
 	#zhc{
 		left: 12%;
 		width: 77%;
+	}
+	#wangjimima{
+		left: 134px;
 	}
 }
  
