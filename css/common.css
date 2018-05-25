@@ -311,11 +311,17 @@ img{
 	}
 	#denglu{
 		left: 12%;
-		width: 77%;
+		width: 76%;
 	}
 	#zhc{
 		left: 12%;
-		width: 77%;
+		width: 76%;
+	}
+	#iphone{
+		left:9%;
+	}
+	#password{
+		left: 9%;
 	}
 }
 
