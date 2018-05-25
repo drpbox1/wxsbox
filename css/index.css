@@ -137,6 +137,14 @@
 		width: 46%; 
 		left:28%;
 	}
+	#lgwenzi{
+	left: 126px;
+	top: 190px;
+	}
+	#lgpy{
+		left: 131px;
+		top: 226px;
+	}
 	#dingdan{ 
 		left:36%;
 		top:293px;
@@ -164,6 +172,14 @@
    	.circle{ 
 		width: 36%; 
 		left:32%;
+	}
+	#lgwenzi{
+	left: 166px;
+	top: 190px;
+	}
+	#lgpy{
+		left: 171px;
+		top: 226px;
 	}
 	#dingdan{ 
 		left:40%;
