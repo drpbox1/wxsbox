@@ -206,3 +206,95 @@
 		right: 13%;
 	}
 }
+@media screen and (min-width: 480px) and (max-width: 1023px){
+    .circle{ 
+		width: 24%; 
+		left:38%;
+		height: 99%;
+		top: 20px;
+	}
+	#lgwenzi{
+	left: 343px;
+	top: 190px;
+	}
+	#lgpy{
+		left: 348px;
+		top: 226px;
+	}
+	#dingdan{ 
+		left:44%;
+		top:293px;
+		width: 100px;
+		height: 100px;
+	}
+	#dingdan_text{ 
+		left: 47%;
+		top:397px;
+	}
+	#yingxiao{ 
+		left:12%;
+		top:385px;
+		width: 85px;
+		height: 85px;
+	}
+	#yingxiao_text{ 
+		left: 14%;
+		top:472px;
+	}
+	#quehuo{
+		top:385px;
+		right: 11%;
+		width: 85px;
+		height: 85px;
+	}
+	#quehuo_text{
+		top:472px;
+		right: 13%;
+	}
+}
+@media screen and (min-width: 1024px){
+    .circle{ 
+		width: 18%; 
+		left:43%;
+		height:100%;
+		top: 20px;
+	}
+	#lgwenzi{
+	left: 490px;
+	top: 185px;
+	}
+	#lgpy{
+		left: 495px;
+		top: 226px;
+	}
+	#dingdan{ 
+		left:47%;
+		top:293px;
+		width: 100px;
+		height: 100px;
+	}
+	#dingdan_text{ 
+		left: 49%;
+		top:397px;
+	}
+	#yingxiao{ 
+		left:12%;
+		top:385px;
+		width: 85px;
+		height: 85px;
+	}
+	#yingxiao_text{ 
+		left: 13%;
+		top:472px;
+	}
+	#quehuo{
+		top:385px;
+		right: 10%;
+		width: 85px;
+		height: 85px;
+	}
+	#quehuo_text{
+		top:472px;
+		right: 11%;
+	}
+}
