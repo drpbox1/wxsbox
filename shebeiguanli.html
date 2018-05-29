@@ -99,6 +99,47 @@
 		float: left;
 		position: absolute;
 	}
+	#sb_mingcheng{
+		right: 18px;
+		top: 22px;
+		width: 50%;
+		height: 23px;
+		line-height: 17px;
+		color: rgba(63, 81, 181, 1);
+		font-size: 12px;
+		text-align: center;
+		font-family: Arial;
+		float: left;
+		position: absolute;"
+	}
+	@media screen and (min-width: 480px) and (max-width: 1023px){
+		.sb_shebeihao{
+			width: 23%;
+		}
+		#sb_mingcheng{
+			width: 25%;
+		}
+		#sb_zhuangtai_off{
+			right: 42px;
+		}
+		#sb_led_off{
+			right: 99px;
+		}
+	}
+	@media screen and (min-width: 1024px){
+   		.sb_shebeihao{
+			width: 23%;
+		}
+		#sb_mingcheng{
+			width: 20%;
+		}
+		#sb_zhuangtai_off{
+			right: 25px;
+		}
+		#sb_led_off{
+			right: 75px;
+		}
+	}
 .pagesdiv{ width:98%; height:40px; text-align:center; margin:2px 1%;display:none}
 .pagesdiv .lodimg{ width:30px; height:30px; display:inline-block; margin-top:40px;}
 .pagesdiv .lodtxt{ display:inline-table; margin-top:-8px; margin-left:5px}
@@ -148,7 +189,7 @@
 					        var datacount=res.data.length;
 							 for (var i=0; i<datacount; i++) {
 								 var html='<div id="sb_list"><div>';
-					                 html+='<p class="sb_shebeihao">设备编号：'+res.data[i]['devicenum']+'</p><span style="right: 18px;top: 22px;width: 50%;height: 23px;line-height: 17px;color: rgba(63, 81, 181, 1);font-size: 12px;text-align: center;font-family: Arial;float: left;position: absolute;">设备名称：'+res.data[i]['devicename']+'</span>';
+					                 html+='<p class="sb_shebeihao">设备编号：'+res.data[i]['devicenum']+'</p><span id="sb_mingcheng">设备名称：'+res.data[i]['devicename']+'</span>';
 					                 html+='</div><div><img style="left: 11px;top: 60px;width: 15px;height: 15px;float: left;position: absolute;" src="images/icon_dizhi@2x.png">'; 
 					                 html+='<p id="sb_dizhi">地址：'+res.data[i]['address']+'</p>';
 					                 html+='</div><div style="top: 79px;left: 12px;width: 99%; float: left;position: absolute;"><ul style="left: 19px;float: left;position: absolute;">';

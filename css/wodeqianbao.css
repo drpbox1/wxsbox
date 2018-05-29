@@ -100,3 +100,19 @@
 	float: left;
 	position: absolute;
 }
+@media screen and (min-width: 480px) and (max-width: 1023px){
+	#qb_yue{
+		left: 42%;
+	}
+	#qb_yuezhi{
+		left: 42%;
+	}
+}
+@media screen and (min-width: 1024px){
+	#qb_yue{
+		left: 42%;
+	}
+	#qb_yuezhi{
+		left: 43%;
+	}
+}

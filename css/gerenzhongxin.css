@@ -137,3 +137,25 @@
 	float: left;
 	position: absolute;
 }
+@media screen and (min-width: 480px) and (max-width: 1023px){
+	.biaoti{
+		left: 45%;
+	}
+	#gr_touxiang{
+		left: 40%;
+	}
+	#gr_nicheng{ 
+		left:45%;
+	}
+}
+@media screen and (min-width: 1024px){
+   	.biaoti{
+		left: 45%;
+	}
+	#gr_touxiang{
+		left: 42%;
+	}
+	#gr_nicheng{ 
+		left:45%;
+	}
+}

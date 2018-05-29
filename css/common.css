@@ -358,4 +358,20 @@ img{
 		left: 134px;
 	}
 }
+@media screen and (min-width: 480px) and (max-width: 1023px){
+	.biaoti{
+		left: 45%;
+	}
+	#wangjimima{
+		left: 350px;
+	}
+}
+@media screen and (min-width: 1024px){
+   	.biaoti{
+		left: 45%;
+	}
+	#wangjimima{
+		left: 490px;
+	}
+}
  
