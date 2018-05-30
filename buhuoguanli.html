@@ -61,7 +61,7 @@
 	border: solid rgba(136, 136, 136, 1);
 	border-width: 1px;
 	float: left; 
-	position: absolute;
+	position: relative;
 }
 #bh_shangping2{
 	width: 49%;
@@ -182,6 +182,8 @@
 			              	ajax_method("m/allstock","put",{'id':device_id},token,function (res) {  
 							    if(res.code == 200){ 
 							    	console.log(res); 
+									$("#yjbuhuo").css("background","green"); 
+									alert('补货成功'); 
 							    } 
 							});  
 			});
