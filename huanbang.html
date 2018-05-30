@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>换绑验证</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<style type="text/css">
+	#xg_iphone{
+		float: left;
+		left: 10%;
+		top: 100px;  
+		line-height:30px;
+		width: 80%;
+		text-align: left;
+		border: 1px solid rgba(187, 187, 187, 1);
+		position: absolute;
+	}
+	#xg_verify{
+		right: 36px;
+		top: 152px;
+		width: 93px;
+		height: 24px;
+		opacity: 0.67;
+		border-radius: 4px;
+		background-color: rgba(187, 187, 187, 1);
+		color: rgba(255, 255, 255, 1);
+		font-size: 14px;
+		text-align: center;
+		font-family: Microsoft Yahei;
+		border: 1px solid rgba(187, 187, 187, 1);
+		position: absolute;
+	}
+	#xg_verify_text{
+		left: 10%;
+		top: 150px;
+		width: 50%;
+		height: 26px;
+		text-align: left;
+		border: 1px solid rgba(187, 187, 187, 1);
+		float: left;
+		position: absolute;
+	}
+	#xg_bangding{
+		left: 29px;
+		top: 200px;
+		width: 85%;
+		height: 40px;
+		border-radius: 7px;
+		background-color: rgba(75, 123, 249, 1);
+		color: rgba(255, 255, 255, 1);
+		font-size: 14px;
+		text-align: center;
+		font-family: Microsoft Yahei;
+		border: 1px solid rgba(187, 187, 187, 1);
+		float: left;
+	    position: absolute;
+	}
+	</style>
+</head>
+<body>
+	<div class="jiemian">
+		<div class="top"></div>
+		<div class="head">
+			<img class="fanhui" src="images/btn_fanhui@3x.png"><p class="biaoti">换绑验证</p>
+		</div>
+		<div> 
+			<div><input id="xg_iphone" type="text" name="iPhone" placeholder="输入手机号"></div>
+		</div>
+		<div> 
+			<div><input id="xg_verify_text" type="text" name="" placeholder="输入验证码"><input id="xg_verify" type="submit" name="" value="获取验证码"></div>
+		</div>
+		<div>
+			<input id="xg_bangding" type="submit" name="bangding" value="修改绑定">
+		</div>
+	</div>
+
+	<!--请在下方写此页面业务相关的脚本-->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/require.js"></script>
+	<script>
+		
+		var token = sessionStorage.getItem("token");
+		$(function(){
+		 	if(!isNaN(token)){ 
+				window.location.href ='login.html';
+			}else{ 
+				$("#xg_verify").click(function(){
+					var phone = $("#xg_iphone").val();
+					var type=3;
+					if(phone.length ===0){
+						alert("请输入手机号");
+					}else{
+						ajax_method("m/smscode","get",{phone: phone,type:type},"",function (res) {
+					           			if(res.code == 200){ 
+						            		 alert(res.data);
+										}else{
+											alert(res.msg);
+										}
+						            });
+						}
+					});
+					$("#xg_bangding").click(function(){
+						var phone = $("#xg_iphone").val();
+						var sms_code = $("#xg_verify_text").val();
+						if (phone.length*sms_code.length===0) {
+							alert("请输入");
+						}else{
+							ajax_method("m/alipay","put",{phone:phone,sms_code:sms_code},token,function(res){
+								if(res.code == 200){ 
+						            	location.href="xiugaibangdin.html"; 
+										}else{
+											alert(res.msg);
+										}
+									});
+						}
+					});
+			}   
+        });
+
+
+
+
+
+		
+	</script>
+</body>
+</html>

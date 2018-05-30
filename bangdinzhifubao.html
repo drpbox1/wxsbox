@@ -88,7 +88,8 @@
 				}else{		
 			            ajax_method("m/alipay","post",{signature: signature,alipay_name: alipay_name,alipay: alipay},token,function (res) {
 			           			if(res.code == 200){ 
-				            		alert("绑定成功")  
+				            		alert("绑定成功");
+				            		location.href="gerenzhongxin.html";  
 									} else{
 										alert(res.msg);
 									}
