@@ -56,14 +56,47 @@
 			<img class="fanhui" src="images/btn_fanhui@3x.png"><p class="biaoti">绑定支付宝</p>
 		</div>
 		<div>
-			<input id="xingming" type="text" name="xingming" value="请输入您的姓名">
+			<input id="xingming" type="text" name="xingming" placeholder="请输入您的姓名">
 		</div>
 		<div>
-			<input id="zhanghao" type="text" name="zhanghao" value="请输入您的支付宝账号">
+			<input id="zhanghao" type="text" name="zhanghao" placeholder="请输入您的支付宝账号">
 		</div>
 		<div>
 			<input id="bangding" type="submit" name="bangding" value="确认绑定">
 		</div>
 	</div>
+
+	<!--请在下方写此页面业务相关的脚本-->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/require.js"></script>
+	<script>
+		$(".fanhui").click(function(){
+    		location.href='wodeqianbao.html';
+	    });
+		var token = sessionStorage.getItem("token"); 
+		 $(function(){  
+            if(!isNaN(token)){ 
+			window.location.href ='login.html';
+			}else{
+				$("#bangding").click(function () {
+				var signature=sessionStorage.getItem("key");
+				var alipay_name = $("#xingming").val();
+		        var alipay = $("#zhanghao").val();
+				var rsa = '';
+				if (xingming.length * zhanghao.length === 0) {
+				alert("请输入绑定信息");
+				}else{		
+			            ajax_method("m/alipay","post",{signature: signature,alipay_name: alipay_name,alipay: alipay},token,function (res) {
+			           			if(res.code == 200){ 
+				            		alert("绑定成功")  
+									} else{
+										alert(res.msg);
+									}
+				            });	 		
+			    	} 		
+			    });
+			}
+        }); 
+	</script>
 </body>
 </html>

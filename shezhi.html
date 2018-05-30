@@ -164,8 +164,7 @@
 		});
 
 		$(".choose-label").click(function(){ 
-			 var is_push = $("#male").val();  
-			 console.log(is_push); 
+			 var is_push = $("#male").val();
 			 ajax_method("m/push","put",{"status": is_push},token,function (res) {
 		        if(res.code == 200){  
 						$("#male").val(0);

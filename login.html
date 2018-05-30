@@ -46,6 +46,7 @@
             ajax_method("m/newlogin","post",{phone: phone, password: password},"",function (res) { 	
             	if(res.code == 200){ 
             		 rsa = res.data.rsa;
+            		 sessionStorage.setItem("key", res.data['key']);
 					 ajax_method("m/login","get",{rsa: rsa},"",function (res) {   	
             		 if(res.code == 200){
             		 	 sessionStorage.setItem("token", res.data['ww-token']); 

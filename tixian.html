@@ -69,14 +69,46 @@
 			<img class="fanhui" src="images/btn_fanhui@3x.png"><p class="biaoti">提现</p>
 		</div>
 		<div>
-			<input id="jine" type="text" name="xingming" value="请输入体现金额">
+			<input id="jine" type="text" name="xingming" placeholder="输入提现金额">
 		</div>
 		<div id="tishi">
 			<span id="ts_wenzi">提现2-50元服务费（支付宝代扣）</span>
 		</div>
 		<div>
-			<input id="tixian" type="submit" name="tixian" value="确认体现">
+			<input id="tixian" type="submit" name="tixian" value="确认提现">
 		</div>
 	</div>
+
+	<!--请在下方写此页面业务相关的脚本-->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/require.js"></script>
+	<script>
+		$(".fanhui").click(function(){
+    		location.href='wodeqianbao.html';
+		});
+
+		var token = sessionStorage.getItem("token"); 
+		 $(function(){  
+            if(!isNaN(token)){ 
+			window.location.href ='login.html';
+			}else{
+				$("#tixian").click(function () {
+			    var jine = $("#jine").val();
+				var rsa = '';
+				if (jine.length === 0) {
+				alert("请输入您要提现的金额");
+				}else{		
+				    ajax_method("m/withdraw","put",{money: jine},token,function (res) {
+				        if(res.code == 200){ 
+					        alert("提现成功")  
+						} else{
+							alert(res.msg);
+							}
+					    });	 		
+			    	} 		
+			    });
+			}
+        }); 
+	</script>
 </body>
 </html>
