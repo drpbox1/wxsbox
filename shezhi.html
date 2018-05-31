@@ -126,7 +126,7 @@
 				<span style="left: 29px;top: 91px;float: left;position: absolute;font-size: 14px;">消息提醒</span>
 				<div id="anniu">
 					<input style="float: right;position: absolute;" type="checkbox" name="sex" id="male" value="1" class="chooseBtn" />
-					<label for="male" class="choose-label"></label>
+					<label for="male" class="choose-label" ></label>
 				</div> 
 			</div>
 			<div id="yjfk">
@@ -152,6 +152,17 @@
 		if(!isNaN(token)){ 
 			window.location.href ='login.html';
 		} 
+
+		ajax_method("m/push","get","",token,function (res) {
+	        if(res.code == 200){  
+	        	    if(res.data.is_push == 0){
+						$("#male").val(1);
+	        	    }else{
+						$("#male").val(0);
+	        	        $(".choose-label").css("background","#51ccee"); 
+	        	    }
+	           }  
+        })  
 
 		$("#tuichu").click(function(){ 
 				ajax_method("m/logout","get","",token,function (res) {
