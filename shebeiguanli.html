@@ -200,12 +200,13 @@
 								 		}else{
 								 			html+='<div><input id="sb_zhuangtai_off" type="button" name="zhuangtai" value="离线"></div></div>'; 
 								 		}
-									if(res.data[i]['ledstatus'] == 1){
-                          				html+='<div><a href="http://o.xcentiot.com/api.php?c=index&a=openLight&deviceid='+res.data[i]['devicenum']+'&led=off"><input id="sb_led_on" type="button" name="zhuangtai" value="灯关"></a></div></div>'; 
-							 		}else{
-							 			html+='<div><a href="http://o.xcentiot.com/api.php?c=index&a=openLight&deviceid='+res.data[i]['devicenum']+'&led=on"><input id="sb_led_off" type="button" name="zhuangtai" value="灯开"></a></div></div>'; 
-							 		}
-
+										if(res.data[i]['devicetype'] == 'grid'){
+											if(res.data[i]['ledstatus'] == 1){
+		                          				html+='<div><a href="http://o.xcentiot.com/api.php?c=index&a=openLight&deviceid='+res.data[i]['devicenum']+'&led=off"><input id="sb_led_on" type="button" name="zhuangtai" value="灯关"></a></div></div>'; 
+									 		}else{
+									 			html+='<div><a href="http://o.xcentiot.com/api.php?c=index&a=openLight&deviceid='+res.data[i]['devicenum']+'&led=on"><input id="sb_led_off" type="button" name="zhuangtai" value="灯开"></a></div></div>'; 
+									 		}
+										}
 									$("#listcontent").append(html); 
 							 } 
 							  $("#redgiftNextPage").val(parseInt($("#redgiftNextPage").val())+1);
@@ -243,11 +244,13 @@
 										 		}else{
 										 			html+='<div><input id="sb_zhuangtai_off" type="button" name="zhuangtai" value="离线"></div></div>'; 
 										 		}
-										 		if(res.data[i]['ledstatus'] == 1){
-			                          				html+='<div><a href="http://o.xcentiot.com/api.php?c=index&a=openLight&deviceid='+res.data[i]['devicenum']+'&led=off"><input id="sb_led_on" type="button" name="zhuangtai" value="灯关"></a></div></div>'; 
-										 		}else{
-										 			html+='<div><a href="http://o.xcentiot.com/api.php?c=index&a=openLight&deviceid='+res.data[i]['devicenum']+'&led=on"><input id="sb_led_off" type="button" name="zhuangtai" value="灯开"></a></div></div>'; 
-										 		}
+												if(res.data[i]['devicetype'] == 'grid'){
+											 		if(res.data[i]['ledstatus'] == 1){
+				                          				html+='<div><a href="http://o.xcentiot.com/api.php?c=index&a=openLight&deviceid='+res.data[i]['devicenum']+'&led=off"><input id="sb_led_on" type="button" name="zhuangtai" value="灯关"></a></div></div>'; 
+											 		}else{
+											 			html+='<div><a href="http://o.xcentiot.com/api.php?c=index&a=openLight&deviceid='+res.data[i]['devicenum']+'&led=on"><input id="sb_led_off" type="button" name="zhuangtai" value="灯开"></a></div></div>'; 
+											 		}
+												}
 											$("#listcontent").append(html);
 										 }
 										 $("#redgiftNextPage").val(parseInt($("#redgiftNextPage").val())+1);

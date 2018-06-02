@@ -63,7 +63,11 @@
         }
     });
     console.log(sessionStorage.getItem("token"));
-    console.log(sessionStorage.getItem("user_id"));
+    console.log(sessionStorage.getItem("user_id")); 
+    if(isNaN(sessionStorage.getItem("token"))){
+    	window.location.href ='index.html';
+    }
+
   //   $(function () {  
 
   //    var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMjAsInJlZ2lzdHJhdGlvbl9pZCI6ImJvYm8iLCJpYXQiOjE1MjU0MTAwMjcsImV4cCI6MTUyNjAxNDgyN30=.abb5192c44c4dfda3dfb33e7a138b73bf6af7ee28617bdba2b1a598a769c9ce9";

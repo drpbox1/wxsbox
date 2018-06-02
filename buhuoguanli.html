@@ -144,13 +144,9 @@
 <script type="text/javascript">
      $(function(){   
      var device_id = getUrlParam('id');
+	
 	 var doorstatus = $("#doorstatus").val(); 
-	 console.log(doorstatus);
-	 //开柜子 
-     $("#devid").html(device_id);
-     $("#yjbuhuo").click(function(){
-     	$(this).css("background","green");
-     });
+	 console.log(doorstatus);  
      $(".fanhui").click(function(){
     		location.href='quehuotongji.html';
 	 });
@@ -186,7 +182,12 @@
 									alert('补货成功'); 
 							    } 
 							});  
-			});
+			}); 
+				 //开柜子 
+			     $("#devid").html(device_id);
+			     $("#yjbuhuo").click(function(){
+			     	$(this).css("background","green");
+			     });
 		}
 	    	
       });

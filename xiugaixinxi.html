@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
 	<title>修改信息</title>
 	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" href="dist/css/layui.css" media="all">
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="js/require.js"></script>
 	
@@ -98,6 +99,7 @@
 	border: 1px solid rgba(187, 187, 187, 1);
 	position: absolute;
 }
+ 
 </style>
 </head>
 <body>
@@ -106,10 +108,15 @@
 		<div class="head">
 			<img class="fanhui" src="images/btn_fanhui@3x.png"><p class="biaoti">修改信息</p><span id="zhuanfa" name="zhuanfa">...</span>
 		</div>
-		<div id="touxiang">
+		<div class="layui-upload">
+		  <button type="button" class="layui-btn" id="test1"> 
+		   <div id="touxiang">
 			<img id="xg_touxiang" src="images/touxiang@3x.png">
-			<input id="xz_wenjian" type="file" name="xz_wenjian">
-		</div>
+			<input id="xz_wenjian" type="hidden" name="xz_wenjian" value="">
+			</div>
+		   </button>
+		</div> 
+		
 		<div>
 			<input id="xg_nicheng" type="text" name="nicheng" value="">
 		</div>
@@ -123,8 +130,9 @@
 		</div>
 		<div>
 			<input id="shangchuan" type="button" value="上传">
-		</div>
+		</div> 
 	</div>
+	<script src="dist/layui.js" charset="utf-8"></script>
 	<script type="text/javascript">
 		var token = sessionStorage.getItem("token");
 		if(!isNaN(token)){ 
@@ -161,45 +169,102 @@
 		$(".fanhui").click(function(){
     		location.href='gerenzhongxin.html';
 		 });
-		$("#shangchuan").click(function(){
-			var formData = new FormData();
-			formData.append('image[]', $('#xz_wenjian')[0].files[0]);
+
+		layui.use('upload', function(){
+		   var $ = layui.jquery
+		    , upload = layui.upload;
+		   
+		   //普通图片上传
+		  var uploadInst = upload.render({
+		    elem: '#test1'
+		    ,url: url + 'm/setHeadImage'
+			,method: 'POST'   
+			,field:'image[]'
+		    ,before: function(obj){
+		      //预读本地文件示例，不支持ie8
+		      obj.preview(function(index, file, result){
+		        $('#xg_touxiang').attr('src', result); //图片链接（base64）
+		      });
+		    }	
+		    ,done: function(res){
+		      //如果上传失败
+		      if(res.code != 200){
+		        	return layer.msg('上传头像失败');
+		      }else{ 
+		      		$("#xz_wenjian").attr("value",res.data['head_img']);  
+					return layer.msg('上传头像成功');
+			  }
+		    }
+		    ,error: function(){
+		      //演示失败状态，并实现重传
+		      var demoText = $('#demoText');
+		      demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-mini demo-reload">重试</a>');
+		      demoText.find('.demo-reload').on('click', function(){
+		        uploadInst.upload();
+		      });
+		    }
+		  });
+		  
+		});
+
+
+		$("#shangchuan").click(function(){ 
 			var token = sessionStorage.getItem("token");
 			if(!isNaN(token)){ 
 					window.location.href ='login.html';
 				}else{
-					$.ajax({
-						url: url + 'm/setHeadImage', 
-						type: "post",
-						data: formData, 
-						processData: false,
-						contentType: false,
-						beforeSend: function (XMLHttpRequest) {  
-							XMLHttpRequest.setRequestHeader("ww-token", token);  
-						},  
-						success: function (res) {
-							if(res.code == 200){
-								var img_url=res.data['head_img'];
-								var nickname=$('#xg_nicheng').val();
-								var sex=$("#xg_xingbie option:selected").val();
-								ajax_method("m/setUserInfo","post",{nickname: nickname,img_url:img_url,sex: sex},token,function (res) {
-									if(res.code == 200){ 
-										alert('修改成功');
-									}else{
-										alert(res.msg);
-									} 
-								});
-							}else{
-								alert(res.msg);
-							}
-						},
-						error: function (err) {
-							alert(JSON.stringify(err));
-						}
+					var img_url=$("#xz_wenjian").attr("value"); 
+					var nickname=$('#xg_nicheng').val();
+					var sex=$("#xg_xingbie option:selected").val();
+					ajax_method("m/setUserInfo","post",{nickname: nickname,img_url:img_url,sex: sex},token,function (res) {
+						if(res.code == 200){ 
+							alert('修改成功');
+						}else{
+							alert(res.msg);
+						} 
 					});
-				 
 				}
 		});
+
+		// $("#shangchuan").click(function(){
+		// 	var formData = new FormData();
+		// 	formData.append('image[]', $('#xz_wenjian')[0].files[0]);
+		// 	var token = sessionStorage.getItem("token");
+		// 	if(!isNaN(token)){ 
+		// 			window.location.href ='login.html';
+		// 		}else{
+		// 			$.ajax({
+		// 				url: url + 'm/setHeadImage', 
+		// 				type: "post",
+		// 				data: formData, 
+		// 				processData: false,
+		// 				contentType: false,
+		// 				beforeSend: function (XMLHttpRequest) {  
+		// 					XMLHttpRequest.setRequestHeader("ww-token", token);  
+		// 				},  
+		// 				success: function (res) {
+		// 					if(res.code == 200){
+		// 						var img_url=res.data['head_img'];
+		// 						var nickname=$('#xg_nicheng').val();
+		// 						var sex=$("#xg_xingbie option:selected").val();
+		// 						ajax_method("m/setUserInfo","post",{nickname: nickname,img_url:img_url,sex: sex},token,function (res) {
+		// 							if(res.code == 200){ 
+		// 								alert('修改成功');
+		// 							}else{
+		// 								alert(res.msg);
+		// 							} 
+		// 						});
+		// 					}else{
+		// 						alert(res.msg);
+		// 					}
+		// 				},
+		// 				error: function (err) {
+		// 					alert(JSON.stringify(err));
+		// 				}
+		// 			});
+				 
+		// 		}
+		// });
 	</script>
 </body>
 </html>
