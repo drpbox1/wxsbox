@@ -62,11 +62,18 @@
             }); 
         }
     });
-    console.log(sessionStorage.getItem("token"));
-    console.log(sessionStorage.getItem("user_id")); 
-    if(isNaN(sessionStorage.getItem("token"))){
-    	window.location.href ='index.html';
-    }
+    console.log(sessionStorage.getItem("token")); 
+ 	ajax_method("m/usercache","get",'',"",function (res) { 	
+    	if(res.code == 200){ 
+    		   sessionStorage.setItem("user_id", res.data.data['user_id']); 
+			   console.log(sessionStorage.getItem("user_id")); 
+			   sessionStorage.setItem("token", res.data.data['ww-token']); 
+			   console.log(sessionStorage.getItem("token")); 
+    		   location.href="index.html"; 
+		}else{
+			alert(res.msg);
+		} 	
+    }); 
 
   //   $(function () {  
 

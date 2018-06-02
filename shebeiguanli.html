@@ -164,27 +164,19 @@
 
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="js/require.js"></script>
-	<script>
-		$(".fanhui").click(function(){
+	<script>  
+	$(".fanhui").click(function(){
     		location.href='index.html';
 	 	});
-		$("#selected_shouye").click(function(){
-    		location.href='index.html';
-		});
-		$("#selected_shebei").click(function(){
-    		location.href='shebeiguanli.html';
-		});
-		$("#selected_gerenzhongxing").click(function(){
-    		location.href='gerenzhongxin.html';
-		});
-
-		$(function(){     
-		     //准备data 
-		    var token = sessionStorage.getItem("token");
-		    if(!isNaN(token)){ 
-				window.location.href ='login.html';
-			}else{ 
-				ajax_method("m/devicelist","get",{'rows':10,'page':1},token,function (res) {  
+		$(function(){ 
+			ajax_method("m/usercache","get",'',"",function (res) { 	
+		    	if(res.code == 200){ 
+		    		   sessionStorage.setItem("user_id", res.data.data['user_id']); 
+					   console.log(sessionStorage.getItem("user_id")); 
+					   sessionStorage.setItem("token", res.data.data['ww-token']); 
+					   console.log(sessionStorage.getItem("token"));  
+		   			   var token = res.data.data['ww-token'];
+					   ajax_method("m/devicelist","get",{'rows':10,'page':1},token,function (res) {  
 					    if(res.code == 200){ 
 					        var datacount=res.data.length;
 							 for (var i=0; i<datacount; i++) {
@@ -262,7 +254,11 @@
 							}
 				        }
 				    }); 
-				}
+				}else{
+					alert(res.msg);
+					location.href="login.html"; 
+				} 	
+		    });     
 			    	
 		 });
 
