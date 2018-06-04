@@ -280,10 +280,7 @@
 					ajax_method("m/certify","post",{id_card: id_card,trade_license:trade_license,trade_license_img: trade_license_img,certify_phone:certify_phone,realname:realname},token,function (res) {
 	           			if(res.code == 200){ 
 		            		 alert('上传成功');
-						}elseif(res.code == 403){
-							alert('管理员认证中');
-						}
-						else{
+						}else{
 							 alert(res.msg);
 						} 
  				});  
