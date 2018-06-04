@@ -5,6 +5,23 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
 	<title>绑定支付宝</title>
 	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<!--请在下方写此页面业务相关的脚本-->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/require.js"></script>
+	<script type="text/javascript">
+		var token = sessionStorage.getItem("token"); 
+		 $(function(){  
+            if(!isNaN(token)){ 
+			window.location.href ='login.html';
+			}else{
+			    ajax_method("m/alipay","get","",token,function (res) {
+			        if(res.code == 200&&res.data['alipay']!==null&&res.data['alipay_name']!==null){ 
+				        window.location.href='xiugaibangdin.html'; 
+					}
+				});	
+			}
+        }); 
+	</script>
 	<style type="text/css">
 	#xingming{
 		left: 0px;
@@ -66,9 +83,7 @@
 		</div>
 	</div>
 
-	<!--请在下方写此页面业务相关的脚本-->
-	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="js/require.js"></script>
+	
 	<script>
 		$(".fanhui").click(function(){
     		location.href='wodeqianbao.html';
