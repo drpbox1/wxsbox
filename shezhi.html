@@ -33,6 +33,13 @@
 		height: 63px;
 		border: 1px solid rgba(187, 187, 187, 1);
 	}
+	#hbwx{
+		top: 211px;
+		width: 100%;
+		height: 63px;
+		border-top:1px solid rgba(187, 187, 187, 1);
+		border-bottom:1px solid rgba(187, 187, 187, 1);
+	}
 	#yjfk{
 		top: 211px;
 		width: 100%;
@@ -124,14 +131,17 @@
 		</div>
 		<div>
 			<div id="xxtx">
-				<span style="left: 29px;top: 91px;float: left;position: absolute;font-size: 14px;">消息提醒</span>
+				<span style="left: 29px;top: 91px;float: left;position: absolute;font-size: 14px;color:rgba(255, 255, 255, 1);">消息提醒</span>
 				<div id="anniu">
 					<input style="float: right;position: absolute;" type="checkbox" name="sex" id="male" value="1" class="chooseBtn" />
 					<label for="male" class="choose-label" ></label>
 				</div> 
 			</div>
+			<div id="hbwx">
+				<span id="wxbind" style="left: 29px;top: 159px;float: left;position: absolute;font-size: 14px;color:rgba(255, 255, 255, 1);">微信换绑</span>
+			</div>
 			<div id="yjfk">
-				<span id="fankui" style="left: 29px;top: 159px;float: left;position: absolute;font-size: 14px;">意见反馈</span>
+				<span id="fankui" style="left: 29px;top: 222px;float: left;position: absolute;font-size: 14px;color:rgba(255, 255, 255, 1);">意见反馈</span>
 			</div>
 	  </div>
 		<div>
@@ -146,6 +156,9 @@
 	    	location.href='gerenzhongxin.html';
 		}); 
 		$("#fankui").click(function(){
+    		location.href='yijianfankui.html';
+		});
+		$("#wxbind").click(function(){
     		location.href='yijianfankui.html';
 		});
 		var token = sessionStorage.getItem("token");

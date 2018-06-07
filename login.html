@@ -65,11 +65,14 @@
     console.log(sessionStorage.getItem("token")); 
  	ajax_method("m/usercache","get",'',"",function (res) { 	
     	if(res.code == 200){ 
-    		   sessionStorage.setItem("user_id", res.data.data['user_id']); 
-			   console.log(sessionStorage.getItem("user_id")); 
-			   sessionStorage.setItem("token", res.data.data['ww-token']); 
-			   console.log(sessionStorage.getItem("token")); 
-    		   location.href="index.html"; 
+    		   $user_id = res.data.data['user_id'];
+			   if(!getUrlParam('openid')){ 
+	    		   sessionStorage.setItem("user_id",$user_id); 
+				   console.log(sessionStorage.getItem("user_id")); 
+				   sessionStorage.setItem("token", res.data.data['ww-token']); 
+				   console.log(sessionStorage.getItem("token")); 
+	               window.location.href = remote_root+'/api.php?c=pay&a=get_mc_openid&uid='+$user_id;
+	        	} 
 		}else{
 			alert(res.msg);
 		} 	

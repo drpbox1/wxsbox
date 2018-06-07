@@ -172,7 +172,7 @@
 			<button type="button" class="layui-btn" id="test1"> 
 			   	<div>
 					<img id="rz_tp" src="">
-					<input id="tp_shangchuan" type="hidden" name="tp_shangchuan"  value="上传许可证照片" > 
+					<input id="tp_shangchuan" type="hidden" name="tp_shangchuan"  value="" > 
 				</div>
 			   </button>
 			</div> 
@@ -209,7 +209,8 @@
 				$('#rz_iphone').val(certify_phone);
 				$('#rz_tp').attr('src',url+trade_license_img);
 				if (certify_status==1) {
-					alert("认证中");
+				    $("#renzheng").css("background","green");
+					$("#renzheng").val("认证中");
 				}else if (certify_status==2) {
 					alert("请填写认证信息");
 				}else{
@@ -247,7 +248,7 @@
 		      if(res.code != 200){
 		        	return layer.msg('上传营业执照失败');
 		      }else{ 
-		      		$("#xz_wenjian").attr("value",res.data['head_img']);  
+		      		$("#tp_shangchuan").attr("value",res.data['trade_license_img']);  
 					return layer.msg('上传营业执照成功');
 			  }
 		    }
@@ -268,10 +269,13 @@
 			var realname = $("#verify_text").val();
 			var trade_license = $("#xukezheng").val();
 			var certify_phone = $("#rz_iphone").val();
-			var trade_license_img = $("#tp_shangchuan").attr("value"); 
-			if(id_card.length*realname.length*trade_license.length*certify_phone.length*trade_license_img.length===0){
-				 alert("您还没有输入");
-			}			
+			var trade_license_img = $("#tp_shangchuan").attr("value");  
+			if(id_card.length*realname.length*trade_license.length*certify_phone.length===0){
+				 alert("您还没有输入"); return;
+			}
+			if(trade_license_img.length===0){
+				 alert("营业执照上传中"); return;
+			}	 		
 			var token = sessionStorage.getItem("token");
 
 			if(!isNaN(token)){ 
@@ -279,6 +283,8 @@
 				}else{
 					ajax_method("m/certify","post",{id_card: id_card,trade_license:trade_license,trade_license_img: trade_license_img,certify_phone:certify_phone,realname:realname},token,function (res) {
 	           			if(res.code == 200){ 
+							 $("#renzheng").css("background","green");
+							 $("#renzheng").val("认证中");
 		            		 alert('上传成功');
 						}else{
 							 alert(res.msg);
